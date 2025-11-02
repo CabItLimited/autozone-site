@@ -1,0 +1,40 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+site_url: "https://autozonecentremalta.com"
+
+collections:
+  - name: "services"
+    label: "Services"
+    folder: "content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+
+  - name: "gallery"
+    label: "Gallery"
+    folder: "content/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Photo", name: "image", widget: "image" }
+
+  - name: "reviews"
+    label: "Reviews"
+    folder: "content/reviews"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Review", name: "body", widget: "text" }
+      - { label: "Stars (1-5)", name: "stars", widget: "number", min: 1, max: 5 }
+
+publish_mode: editorial_workflow
