@@ -26,3 +26,13 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Photo", name: "image", widget: "image" }
+
+  - name: "reviews"
+    label: "Reviews"
+    folder: "content/reviews"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Rating (1-5)", name: "rating", widget: "number", min: 1, max: 5, step: 1 }
+      - { label: "Comment", name: "comment", widget: "text" }
