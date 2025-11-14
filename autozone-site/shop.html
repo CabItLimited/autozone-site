@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior:smooth;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Shop | AutoZone Centre – Marsa, Malta</title>
+  <meta name="description" content="In-store shop at AutoZone Centre, Marsa: car perfumes, Magic Trees, batteries, wipers, oils, carpets, lighting and accessories. Online payments and delivery coming soon.">
+  <meta name="theme-color" content="#0f0f0f">
+
+  <style>
+    :root {
+      --bg-dark: #0f0f0f;
+      --bg-card: #1a1a1a;
+      --yellow: #ffd500;
+      --text-light: #f5f5f5;
+      --text-dim: #9a9a9a;
+      --border-card: rgba(255,255,255,0.08);
+      --radius-lg: 20px;
+      --radius-sm: 12px;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Inter", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: var(--yellow); }
+
+    /* NAVBAR */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: rgba(15,15,15,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: .6rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .nav-logo {
+      height: 32px;
+      width: auto;
+    }
+
+    .brand-block {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand-name {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .brand-loc {
+      font-size: .7rem;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    nav.nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    .nav-link {
+      color: var(--text-light);
+      text-decoration: none;
+      padding: .45rem .7rem;
+      border-radius: 999px;
+      background-color: transparent;
+      border: 1px solid transparent;
+      transition: all .15s linear;
+    }
+
+    .nav-link:hover {
+      border-color: rgba(255,213,0,0.6);
+      background-color: rgba(255,213,0,0.08);
+      color: var(--yellow);
+    }
+
+    .nav-link.active {
+      border-color: rgba(255,213,0,0.9);
+      background-color: rgba(255,213,0,0.14);
+      color: var(--yellow);
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-cta {
+        display: inline-block;
+        background-color: var(--yellow);
+        color: #000;
+        font-weight: 600;
+        padding: .6rem .9rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: .8rem;
+        border: 0;
+        cursor: pointer;
+      }
+    }
+
+    /* GLOBAL WRAPPER */
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    /* HERO */
+    .hero-shop {
+      margin-bottom: 2rem;
+    }
+
+    .hero-kicker {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: .35rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1.7rem,2.2vw,2.3rem);
+      font-weight: 600;
+      color: var(--text-light);
+      line-height: 1.2;
+      margin-bottom: .6rem;
+    }
+
+    .hero-desc {
+      font-size: .95rem;
+      color: var(--text-dim);
+      max-width: 760px;
+      margin-bottom: .75rem;
+    }
+
+    .hero-note {
+      font-size: .8rem;
+      color: var(--text-dim);
+    }
+
+    /* SECTIONS */
+    .section-block {
+      margin-top: 3rem;
+    }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .5rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-light);
+      line-height: 1.2;
+    }
+
+    .section-label {
+      background: rgba(255,213,0,0.07);
+      border: 1px solid rgba(255,213,0,0.3);
+      color: var(--yellow);
+      font-size: .7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      border-radius: var(--radius-sm);
+      padding: .35rem .5rem;
+      line-height: 1.2;
+    }
+
+    .section-note {
+      font-size: .8rem;
+      color: var(--text-dim);
+      margin-bottom: .75rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(320px,100%), 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-card);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+      padding: 1rem 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 170px;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: .5rem;
+      margin-bottom: .4rem;
+    }
+
+    .service-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-light);
+      line-height: 1.3;
+    }
+
+    .service-meta {
+      font-size: .85rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    .tag-chip {
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius-sm);
+      padding: .3rem .55rem;
+      font-size: .7rem;
+      color: var(--text-dim);
+      display: inline-block;
+      margin-top: .4rem;
+    }
+
+    .status-chip {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,213,0,0.5);
+      color: var(--yellow);
+      font-size: .7rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      padding: .35rem .6rem;
+      white-space: nowrap;
+      margin-top: .75rem;
+      display: inline-block;
+    }
+
+    .whatsapp-btn {
+      margin-top: 1rem;
+      background-color: var(--yellow);
+      color: #000;
+      font-weight: 600;
+      padding: .7rem .9rem;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      text-decoration: none;
+      font-size: .85rem;
+      border: 0;
+      cursor: pointer;
+      display: inline-block;
+      line-height: 1.2;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: .75rem;
+      padding: 3rem 1rem 2rem;
+      line-height: 1.4;
+    }
+
+    footer .mini {
+      color: var(--yellow);
+      font-weight: 600;
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    footer .legal-note { margin-top: .75rem; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/">
+          <img src="images/logo.png" alt="AutoZone Centre Logo" class="nav-logo">
+        </a>
+        <div class="brand-block">
+          <div class="brand-name">AUTOZONE CENTRE</div>
+          <div class="brand-loc">Marsa • Malta</div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/services.html" class="nav-link">Services</a>
+          <a href="/booking.html" class="nav-link">Booking</a>
+          <a href="/shop.html" class="nav-link active">Shop</a>
+          <a href="/gallery.html" class="nav-link">Gallery</a>
+          <a href="/reviews.html" class="nav-link">Reviews</a>
+          <a href="/contact.html" class="nav-link">Contact</a>
+        </nav>
+        <a href="/booking.html" class="nav-cta">Book Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- HERO -->
+    <section class="hero-shop">
+      <div class="hero-kicker">Shop</div>
+      <h1 class="hero-title">In-store car care products at AutoZone Centre.</h1>
+      <p class="hero-desc">
+        Apart from washing and servicing your car, we also stock everyday car care products:
+        perfumes, Magic Trees, batteries, wipers, oils, carpets, bulbs and small accessories.
+      </p>
+      <p class="hero-note">
+        For now, everything is <strong>in-store only</strong>. Online payments and delivery will be added later.
+        To reserve or ask for a price, just hit any WhatsApp button below.
+      </p>
+    </section>
+
+    <!-- IN-STORE PRODUCTS -->
+    <section class="section-block" id="instore">
+      <div class="section-head">
+        <div class="section-title">Available In-Store Now</div>
+        <div class="section-label">Pick up from Marsa</div>
+      </div>
+
+      <div class="grid">
+
+        <!-- Perfumes -->
+        <div class="card">
+          <div>
+            <div class="service-title">Car Perfumes &amp; Magic Trees</div>
+            <div class="service-meta">
+              Different scents to keep your interior fresh. We also include a
+              <strong>free Magic Tree with every wash</strong>, but you can buy extra units or premium scents anytime.
+            </div>
+            <span class="tag-chip">Interior freshness</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20ask%20about%20car%20perfumes%20or%20Magic%20Trees."
+             target="_blank" rel="noopener">
+            WhatsApp About Perfumes
+          </a>
+        </div>
+
+        <!-- Batteries -->
+        <div class="card">
+          <div>
+            <div class="service-title">Car Batteries</div>
+            <div class="service-meta">
+              We stock batteries and can test and replace on the spot with our garage services.
+              If your car is struggling to start, message us and we’ll check what fits your model.
+            </div>
+            <span class="tag-chip">Battery + fitting available</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20need%20a%20car%20battery%20and%20want%20to%20ask%20about%20price%20and%20availability."
+             target="_blank" rel="noopener">
+            WhatsApp About Batteries
+          </a>
+        </div>
+
+        <!-- Wipers -->
+        <div class="card">
+          <div>
+            <div class="service-title">Wipers</div>
+            <div class="service-meta">
+              Fresh wiper blades to keep your windscreen clear and VRT-friendly.
+              We can fit them for you while you are at the wash or during a quick stop.
+            </div>
+            <span class="tag-chip">Safety &amp; visibility</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20ask%20about%20wipers%20for%20my%20car."
+             target="_blank" rel="noopener">
+            WhatsApp About Wipers
+          </a>
+        </div>
+
+        <!-- Oils & fluids -->
+        <div class="card">
+          <div>
+            <div class="service-title">Oils &amp; Fluids</div>
+            <div class="service-meta">
+              Engine oils and basic fluids that we use in our own service bay.
+              If you’re not sure what your car needs, we’ll guide you or handle it with a booking.
+            </div>
+            <span class="tag-chip">Engine &amp; maintenance</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20ask%20about%20engine%20oil%20or%20fluids."
+             target="_blank" rel="noopener">
+            Ask About Oils / Fluids
+          </a>
+        </div>
+
+        <!-- Carpets & accessories -->
+        <div class="card">
+          <div>
+            <div class="service-title">Car Carpets &amp; Accessories</div>
+            <div class="service-meta">
+              Basic carpets, small accessories and add-ons to keep your interior tidy and more comfortable.
+              Stock can change, so always ask what we have available.
+            </div>
+            <span class="tag-chip">Interior protection</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20ask%20what%20car%20accessories%20and%20carpets%20you%20have%20in%20stock."
+             target="_blank" rel="noopener">
+            WhatsApp About Accessories
+          </a>
+        </div>
+
+        <!-- Lighting -->
+        <div class="card">
+          <div>
+            <div class="service-title">Bulbs &amp; Lighting</div>
+            <div class="service-meta">
+              We can help with basic lighting needs such as bulbs for headlights or interior lights,
+              and fit them while the car is in our bay.
+            </div>
+            <span class="tag-chip">See &amp; be seen</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20ask%20about%20bulbs%20or%20lighting%20for%20my%20car."
+             target="_blank" rel="noopener">
+            WhatsApp About Bulbs
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COMING SOON ONLINE -->
+    <section class="section-block" id="coming-soon">
+      <div class="section-head">
+        <div class="section-title">Online Shop – Coming Soon</div>
+        <div class="section-label">Next step</div>
+      </div>
+
+      <div class="section-note">
+        Right now we keep it simple: WhatsApp + in-store pick-up. As AutoZone grows, we’ll add more ways to buy from us.
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <div>
+            <div class="service-title">Online Card Payments</div>
+            <div class="service-meta">
+              We’re planning to add online checkout so you can pay by card directly on the website
+              for selected products and services.
+            </div>
+            <span class="status-chip">Coming Soon</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="service-title">Delivery Options</div>
+            <div class="service-meta">
+              Simple delivery options for products like perfumes, wipers, and small accessories.
+              Details will be announced on our social media once live.
+            </div>
+            <span class="status-chip">Coming Soon</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="service-title">Detailing Products</div>
+            <div class="service-meta">
+              Later on, we may offer some of the same detailing products we use at the wash bay
+              for clients who like to maintain their cars at home.
+            </div>
+            <span class="status-chip">Coming Soon</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="mini">AUTOZONE CENTRE • MARSA</div>
+    <div>Wash • Service • AC • Taxi — All in One Place</div>
+    <div class="legal-note">
+      © <span id="year"></span> AutoZone Centre. All rights reserved.
+      AutoZoneCentreMalta.com
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var yEl = document.getElementById('year');
+      if (yEl) yEl.textContent = new Date().getFullYear();
+    })();
+  </script>
+
+</body>
+</html>
