@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior:smooth;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Reviews | AutoZone Centre – Marsa, Malta</title>
+  <meta name="description" content="Customer reviews for AutoZone Centre, Marsa Malta. Real feedback about our car wash, polishing, services, and more.">
+  <meta name="theme-color" content="#0f0f0f">
+
+  <style>
+    :root {
+      --bg-dark: #0f0f0f;
+      --bg-card: #1a1a1a;
+      --yellow: #ffd500;
+      --text-light: #f5f5f5;
+      --text-dim: #9a9a9a;
+      --border-card: rgba(255,255,255,0.08);
+      --radius-lg: 20px;
+      --radius-sm: 12px;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Inter", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: var(--yellow); }
+
+    /* NAVBAR */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: rgba(15,15,15,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: .6rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .nav-logo {
+      height: 32px;
+      width: auto;
+    }
+
+    .brand-block {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand-name {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .brand-loc {
+      font-size: .7rem;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    nav.nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    .nav-link {
+      color: var(--text-light);
+      text-decoration: none;
+      padding: .45rem .7rem;
+      border-radius: 999px;
+      background-color: transparent;
+      border: 1px solid transparent;
+      transition: all .15s linear;
+    }
+
+    .nav-link:hover {
+      border-color: rgba(255,213,0,0.6);
+      background-color: rgba(255,213,0,0.08);
+      color: var(--yellow);
+    }
+
+    .nav-link.active {
+      border-color: rgba(255,213,0,0.9);
+      background-color: rgba(255,213,0,0.14);
+      color: var(--yellow);
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-cta {
+        display: inline-block;
+        background-color: var(--yellow);
+        color: #000;
+        font-weight: 600;
+        padding: .6rem .9rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: .8rem;
+        border: 0;
+        cursor: pointer;
+      }
+    }
+
+    /* LAYOUT */
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    .page-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: .25rem;
+    }
+
+    .page-sub {
+      font-size: .9rem;
+      color: var(--text-dim);
+      max-width: 700px;
+    }
+
+    .section-block {
+      margin-top: 2.5rem;
+    }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .5rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .section-label {
+      background: rgba(255,213,0,0.07);
+      border: 1px solid rgba(255,213,0,0.3);
+      color: var(--yellow);
+      font-size: .7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      border-radius: var(--radius-sm);
+      padding: .35rem .5rem;
+      line-height: 1.2;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(340px,100%), 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-card);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+      padding: 1rem 1.25rem 1.35rem;
+    }
+
+    /* GOOGLE RATING CARD */
+    .google-card {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+
+    .google-row {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      flex-wrap: wrap;
+    }
+
+    .g-badge {
+      background: #fff;
+      color: #000;
+      border-radius: 999px;
+      padding: .4rem .75rem;
+      font-size: .85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+    }
+
+    .g-dot {
+      width: .65rem;
+      height: .65rem;
+      border-radius: 50%;
+      background: #4285F4;
+      box-shadow:
+        .7rem 0 0 #EA4335,
+        1.4rem 0 0 #FBBC05,
+        2.1rem 0 0 #34A853;
+    }
+
+    .small-note {
+      font-size: .8rem;
+      color: var(--text-dim);
+    }
+
+    .btn-main {
+      display: inline-block;
+      background-color: var(--yellow);
+      color: #000;
+      font-weight: 600;
+      padding: .75rem 1rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: .85rem;
+      border: 0;
+      cursor: pointer;
+      text-align: center;
+      min-width: 150px;
+    }
+
+    /* FORM */
+    form {
+      display: grid;
+      gap: .75rem;
+    }
+
+    label {
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      display: block;
+      margin-bottom: .2rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      background-color: #101010;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text-light);
+      padding: .6rem .75rem;
+      font-size: .9rem;
+      font-family: var(--font-main);
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    .form-row-inline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: .75rem;
+    }
+
+    .helper-text {
+      font-size: .75rem;
+      color: var(--text-dim);
+      margin-top: .15rem;
+    }
+
+    .review-stars {
+      font-size: .9rem;
+      color: var(--text-light);
+    }
+
+    /* REVIEW LIST */
+    .review-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(340px,100%), 1fr));
+      gap: 1rem;
+    }
+
+    .review-item {
+      background-color: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-card);
+      padding: 1rem 1.25rem 1.2rem;
+    }
+
+    .review-name {
+      font-weight: 600;
+      font-size: .95rem;
+      margin-bottom: .1rem;
+    }
+
+    .review-stars-line {
+      color: var(--yellow);
+      font-size: .8rem;
+      margin-bottom: .4rem;
+    }
+
+    .review-text {
+      font-size: .85rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .review-meta {
+      margin-top: .5rem;
+      font-size: .75rem;
+      color: var(--text-dim);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: .75rem;
+      padding: 3rem 1rem 2rem;
+      line-height: 1.4;
+    }
+
+    footer .mini {
+      color: var(--yellow);
+      font-weight: 600;
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    footer .legal-note { margin-top: .75rem; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/">
+          <img src="images/logo.png" alt="AutoZone Centre Logo" class="nav-logo">
+        </a>
+        <div class="brand-block">
+          <div class="brand-name">AUTOZONE CENTRE</div>
+          <div class="brand-loc">Marsa • Malta</div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/services.html" class="nav-link">Services</a>
+          <a href="/booking.html" class="nav-link">Booking</a>
+          <a href="/shop.html" class="nav-link">Shop</a>
+          <a href="/gallery.html" class="nav-link">Gallery</a>
+          <a href="/reviews.html" class="nav-link active">Reviews</a>
+          <a href="/contact.html" class="nav-link">Contact</a>
+        </nav>
+        <a href="/booking.html" class="nav-cta">Book Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- PAGE INTRO -->
+    <section>
+      <h1 class="page-title">Reviews</h1>
+      <p class="page-sub">
+        Real feedback from real customers. Check our live Google reviews, then leave your own rating
+        so we can keep improving AutoZone Centre.
+      </p>
+    </section>
+
+    <!-- GOOGLE REVIEWS SECTION -->
+    <section class="section-block">
+      <div class="section-head">
+        <div class="section-title">Google Reviews</div>
+        <div class="section-label">Live on Google</div>
+      </div>
+
+      <div class="card google-card">
+        <div class="google-row">
+          <div class="g-badge">
+            <span class="g-dot"></span>
+            <span>See our rating on Google</span>
+          </div>
+        </div>
+        <p class="small-note">
+          This button opens our real Google listing with live reviews and rating.
+        </p>
+
+        <a class="btn-main"
+           href="https://www.google.com/maps/search/?api=1&query=AutoZone+Centre+74A+Triq+il-Princep+Albertu+Marsa"
+           target="_blank" rel="noopener">
+          Open Google Reviews
+        </a>
+      </div>
+    </section>
+
+    <!-- MANUAL REVIEW FORM -->
+    <section class="section-block">
+      <div class="section-head">
+        <div class="section-title">Leave a Review</div>
+        <div class="section-label">Manual + Approval</div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <form name="auto-review" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <!-- Netlify form setup -->
+            <input type="hidden" name="form-name" value="auto-review" />
+            <p style="display:none;">
+              <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+            </p>
+
+            <div class="form-row-inline">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required />
+              </div>
+              <div>
+                <label for="service">Service Used</label>
+                <select id="service" name="service">
+                  <option value="">Select…</option>
+                  <option>Car Wash</option>
+                  <option>Deep Clean / Detailing</option>
+                  <option>Polishing</option>
+                  <option>Garage Service</option>
+                  <option>PDR / Dent Removal</option>
+                  <option>Taxi Drop-Off</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row-inline">
+              <div>
+                <label for="rating">Rating</label>
+                <select id="rating" name="rating" required>
+                  <option value="">Select rating…</option>
+                  <option>5 - Excellent</option>
+                  <option>4 - Very Good</option>
+                  <option>3 - Okay</option>
+                  <option>2 - Not Great</option>
+                  <option>1 - Bad</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="message">Your review</label>
+              <textarea id="message" name="message" required></textarea>
+              <div class="helper-text">
+                Your review will be sent to us first. We only publish real, respectful feedback.
+              </div>
+            </div>
+
+            <button type="submit" class="btn-main">Send Review</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <p class="small-note">
+            🔒 <strong>How it works:</strong><br>
+            – You send your review here.<br>
+            – We see it in our Netlify dashboard.<br>
+            – After we approve it, we manually add it below as a featured review.
+          </p>
+          <p class="small-note">
+            This keeps spam away and makes sure reviews are from real clients.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED REVIEWS (MANUAL) -->
+    <section class="section-block">
+      <div class="section-head">
+        <div class="section-title">Featured Reviews</div>
+        <div class="section-label">Hand-picked</div>
+      </div>
+
+      <div class="review-list">
+        <div class="review-item">
+          <div class="review-name">Sample Name</div>
+          <div class="review-stars-line">★★★★★</div>
+          <div class="review-text">
+            This is a sample review. Replace these with real ones once people start sending them in.
+          </div>
+          <div class="review-meta">Service: Car Wash • Date: 2025</div>
+        </div>
+
+        <div class="review-item">
+          <div class="review-name">Sample Name 2</div>
+          <div class="review-stars-line">★★★★★</div>
+          <div class="review-text">
+            Paste your best feedback here. You can copy text from Google Reviews too.
+          </div>
+          <div class="review-meta">Service: Polishing • Date: 2025</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="mini">AUTOZONE CENTRE • MARSA</div>
+    <div>Wash • Service • AC • Taxi — All in One Place</div>
+    <div class="legal-note">
+      © <span id="year"></span> AutoZone Centre. All rights reserved.
+      AutoZoneCentreMalta.com
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var yEl = document.getElementById('year');
+      if (yEl) yEl.textContent = new Date().getFullYear();
+    })();
+  </script>
+
+</body>
+</html>
