@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>AutoZone Centre – Marsa, Malta | Wash • Service • AC • Taxi</title>
-  <meta name="description" content="AutoZone Centre in Marsa, Malta. Hand car wash, AC gas refill, oil & filters, brake pads, coolant change, batteries, diagnostics, taxi drop-off, and more.">
+  <meta name="description" content="AutoZone Centre in Marsa, Malta. Hand car wash, detailing, AC gas refill, oil & filters, brake pads, coolant change, batteries, diagnostics, taxi drop-off, and more.">
   <meta name="theme-color" content="#0f0f0f">
 
   <style>
@@ -60,10 +60,7 @@
       gap: .75rem;
     }
 
-    .nav-logo {
-      height: 32px;
-      width: auto;
-    }
+    .nav-logo { height: 32px; width: auto; }
 
     .brand-block {
       display: flex;
@@ -85,12 +82,6 @@
       font-weight: 500;
     }
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-    }
-
     nav.nav-links {
       display: flex;
       flex-wrap: wrap;
@@ -104,6 +95,7 @@
       text-decoration: none;
       padding: .45rem .7rem;
       border-radius: 999px;
+      background-color: transparent;
       border: 1px solid transparent;
       transition: all .15s linear;
     }
@@ -134,9 +126,11 @@
         border-radius: 999px;
         text-decoration: none;
         font-size: .8rem;
+        cursor: pointer;
       }
     }
 
+    /* GLOBAL WRAPPER */
     .wrap {
       max-width: 1200px;
       margin: 0 auto;
@@ -145,7 +139,7 @@
 
     /* HERO */
     section#home {
-      background: radial-gradient(circle at 20% 20%, rgba(255,213,0,0.18), transparent 70%);
+      background: radial-gradient(circle at 20% 20%, rgba(255,213,0,0.18) 0%, rgba(0,0,0,0) 70%);
       padding-top: 1.5rem;
       padding-bottom: 2rem;
       text-align: center;
@@ -155,28 +149,30 @@
       width: 200px;
       max-width: 70vw;
       margin: 0 auto 1.25rem auto;
+      image-rendering: -webkit-optimize-contrast;
     }
 
     .hero-heading {
       font-size: .8rem;
       font-weight: 700;
       color: var(--yellow);
-      text-transform: uppercase;
       letter-spacing: .08em;
+      text-transform: uppercase;
     }
 
     .hero-tagline {
       font-size: .85rem;
       color: var(--text-dim);
-      margin-top: .35rem;
+      font-weight: 500;
+      margin-top: .4rem;
     }
 
     .hero-title {
-      font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+      font-size: clamp(1.8rem,2.4vw,2.4rem);
       font-weight: 600;
-      color: var(--text-light);
       margin: 1.5rem auto .75rem auto;
       max-width: 800px;
+      line-height: 1.2;
     }
 
     .hero-desc {
@@ -189,33 +185,31 @@
 
     .hero-buttons {
       display: flex;
-      gap: .75rem;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
+      gap: .75rem;
     }
 
-    .btn-main {
-      background-color: var(--yellow);
-      color: #000;
+    .btn-main,
+    .btn-outline {
       padding: .9rem 1.1rem;
       border-radius: var(--radius-sm);
-      font-weight: 600;
       text-decoration: none;
       font-size: .9rem;
+      cursor: pointer;
       min-width: 150px;
+      text-align: center;
+      font-weight: 600;
     }
 
+    .btn-main { background-color: var(--yellow); color: #000; }
     .btn-outline {
+      background-color: transparent;
       border: 1px solid var(--text-light);
       color: var(--text-light);
-      padding: .9rem 1.1rem;
-      border-radius: var(--radius-sm);
-      font-size: .9rem;
-      min-width: 150px;
-      text-decoration: none;
     }
 
-    /* QUICK OVERVIEW */
+    /* SECTIONS */
     .section-block { margin-top: 3rem; }
 
     .section-head {
@@ -225,25 +219,19 @@
       margin-bottom: 1rem;
     }
 
-    .section-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-
+    .section-title { font-size: 1.2rem; font-weight: 600; }
     .section-label {
       background: rgba(255,213,0,0.07);
       border: 1px solid rgba(255,213,0,0.3);
       color: var(--yellow);
       font-size: .7rem;
-      font-weight: 600;
       padding: .35rem .5rem;
       border-radius: var(--radius-sm);
-      text-transform: uppercase;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(320px,100%),1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(320px,100%), 1fr));
       gap: 1rem;
     }
 
@@ -251,54 +239,47 @@
       background-color: var(--bg-card);
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-card);
-      padding: 1rem;
       box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+      padding: 1.2rem 1.1rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .service-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: .35rem;
-    }
-
+    .service-title { font-size: 1rem; font-weight: 600; }
     .service-meta {
       color: var(--text-dim);
       font-size: .85rem;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     .time-chip {
-      margin-top: .75rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text-light);
+      font-size: .7rem;
       padding: .35rem .6rem;
       border-radius: var(--radius-sm);
-      font-size: .7rem;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
       display: inline-block;
-      color: var(--text-light);
+      margin-top: .75rem;
     }
 
     .quick-link-btn {
-      margin-top: 1rem;
+      margin-top: 1.2rem;
       background-color: var(--yellow);
       color: #000;
+      font-weight: 600;
       padding: .7rem .9rem;
       border-radius: var(--radius-sm);
+      text-align: center;
       font-size: .85rem;
-      text-decoration: none;
-      display: inline-block;
-      font-weight: 600;
-    }
-
-    /* COMING SOON SECTION */
-    .coming-soon {
-      margin-top: 3rem;
+      cursor: pointer;
     }
 
     footer {
       text-align: center;
-      font-size: .75rem;
       color: var(--text-dim);
+      font-size: .75rem;
       padding: 3rem 1rem 2rem;
     }
 
@@ -307,7 +288,6 @@
       font-weight: 600;
       font-size: .8rem;
       letter-spacing: .08em;
-      text-transform: uppercase;
     }
 
     footer .legal-note { margin-top: .75rem; }
@@ -316,19 +296,19 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
-<header class="site-header">
-  <div class="nav-inner">
-    <div class="nav-left">
-      <a href="/">
-        <img src="images/logo.png" alt="AutoZone Centre Logo" class="nav-logo">
-      </a>
-      <div class="brand-block">
-        <div class="brand-name">AUTOZONE CENTRE</div>
-        <div class="brand-loc">Marsa • Malta</div>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/">
+          <img src="images/logo.png" alt="AutoZone Centre Logo" class="nav-logo">
+        </a>
+        <div class="brand-block">
+          <div class="brand-name">AUTOZONE CENTRE</div>
+          <div class="brand-loc">Marsa • Malta</div>
+        </div>
       </div>
-    </div>
-    <div class="nav-right">
+
       <nav class="nav-links">
         <a href="/" class="nav-link active">Home</a>
         <a href="/services.html" class="nav-link">Services</a>
@@ -338,129 +318,135 @@
         <a href="/reviews.html" class="nav-link">Reviews</a>
         <a href="/contact.html" class="nav-link">Contact</a>
       </nav>
+
       <a href="/booking.html" class="nav-cta">Book Now</a>
     </div>
-  </div>
-</header>
+  </header>
 
-<main class="wrap">
+  <main class="wrap">
 
-  <!-- HERO -->
-  <section id="home">
-    <img src="images/logo.png" alt="AutoZone Centre Logo" class="site-logo">
+    <!-- HERO -->
+    <section id="home">
+      <img src="images/logo.png" alt="AutoZone Centre Logo" class="site-logo">
 
-    <div class="hero-heading">AUTOZONE CENTRE – MARSA, MALTA</div>
-    <div class="hero-tagline">Wash • Polish • Service • AC • Taxi — All in One Place</div>
+      <div class="hero-heading">AUTOZONE CENTRE – MARSA, MALTA</div>
+      <div class="hero-tagline">Wash • Polish • Service • AC • Taxi — All in One Place</div>
 
-    <h1 class="hero-title">AutoZone Centre — Malta’s All-In-One Car Care Hub.</h1>
+      <h1 class="hero-title">Your Car. Fully Taken Care Of — All In One Place.</h1>
 
-    <p class="hero-desc">
-      Car wash, detailing, clay bar, polishing, battery changes, brake pads, coolant, diagnostics, 
-      and full interior refresh — everything your car needs under one roof in Marsa.<br><br>
-      Drop your car, we handle the rest. Clean, polished, serviced, or refreshed — ready to drive.
-    </p>
+      <p class="hero-desc">
+        From car washes and deep detailing to polishing, clay-bar treatments, brake pads, batteries,
+        coolant, diagnostics, A/C gas, and paintless dent removal — everything your car needs is available at AutoZone Centre in Marsa.
+      </p>
 
-    <div class="hero-buttons">
-      <a class="btn-main" href="/booking.html">Book a Slot</a>
-      <a class="btn-outline" href="/services.html">View All Services</a>
-    </div>
-  </section>
+      <div class="hero-buttons">
+        <a class="btn-main" href="/booking.html">Book a Slot</a>
+        <a class="btn-outline" href="/services.html">View All Services</a>
+      </div>
+    </section>
 
-  <!-- QUICK OVERVIEW -->
-  <section class="section-block">
-    <div class="section-head">
-      <div class="section-title">Everything in One Place</div>
-      <div class="section-label">Overview</div>
-    </div>
+    <!-- OVERVIEW -->
+    <section class="section-block">
+      <div class="section-head">
+        <div class="section-title">Everything in One Place</div>
+        <div class="section-label">Overview</div>
+      </div>
 
-    <div class="grid">
-      <div class="card">
-        <div class="service-title">Car Wash Studio</div>
-        <div class="service-meta">
-          From basic washes to full interior/exterior packages  
-          with engine bay cleaning, clay bar, and polishing.
+      <div class="grid">
+
+        <div class="card">
+          <div>
+            <div class="service-title">Car Wash Studio</div>
+            <div class="service-meta">
+              From basic washes to interior/exterior packages, engine bay cleaning, clay bar and polishing.
+            </div>
+          </div>
+          <a href="/services.html" class="quick-link-btn">See Wash Packages</a>
         </div>
-        <a href="/services.html" class="quick-link-btn">See Wash Packages</a>
-      </div>
 
-      <div class="card">
-        <div class="service-title">Garage & A/C Service</div>
-        <div class="service-meta">
-          A/C gas refills, oil + filters, coolant, brake pads, batteries, diagnostics, and more.
+        <div class="card">
+          <div>
+            <div class="service-title">Garage Service</div>
+            <div class="service-meta">
+              A/C gas refills, oil & filters, coolant, diagnostics, batteries, brake pads and more.
+            </div>
+          </div>
+          <a href="/services.html#garage" class="quick-link-btn">See Garage Services</a>
         </div>
-        <a href="/services.html#garage" class="quick-link-btn">See Garage Services</a>
-      </div>
 
-      <div class="card">
-        <div class="service-title">Taxi Drop-Off</div>
-        <div class="service-meta">
-          Leave your car with us — we drive you to work/home.  
-          Pick up a washed or serviced car later.
+        <div class="card">
+          <div>
+            <div class="service-title">Paintless Dent Removal (PDR)</div>
+            <div class="service-meta">
+              Remove dents without respray. Real PDR available at AutoZone.
+            </div>
+          </div>
+          <a href="/services.html#pdr" class="quick-link-btn">See PDR</a>
         </div>
-        <a href="/booking.html" class="quick-link-btn">Book with Taxi</a>
-      </div>
 
-      <div class="card">
-        <div class="service-title">Find Us in Marsa</div>
-        <div class="service-meta">
-          AutoZone Centre<br>74A, Triq il-Princep Albertu,<br>Marsa
+        <div class="card">
+          <div>
+            <div class="service-title">Drop-Off Service (Paid)</div>
+            <div class="service-meta">
+              Leave your car with us — we drive you to work/home.  
+              Paid service: price varies by distance.
+            </div>
+          </div>
+          <a href="/booking.html" class="quick-link-btn">Book with Taxi</a>
         </div>
-        <span class="time-chip">Easy access from main roads</span>
-        <a class="quick-link-btn"
-           href="https://maps.google.com/?q=AutoZone%20Centre%2074A%20Triq%20il-Princep%20Albertu%20Marsa"
-           target="_blank">Open in Maps</a>
+
+      </div>
+    </section>
+
+    <!-- COMING SOON -->
+    <section class="section-block">
+      <div class="section-head">
+        <div class="section-title">Coming Soon to AutoZone</div>
+        <div class="section-label">Upgrades</div>
       </div>
 
+      <div class="grid">
+
+        <div class="card">
+          <div>
+            <div class="service-title">Tyre Changing</div>
+            <div class="service-meta">In-house tyre replacement & fitting.</div>
+          </div>
+          <div class="time-chip">Coming Soon</div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="service-title">Mobile Car Wash</div>
+            <div class="service-meta">We come to your home or work.</div>
+          </div>
+          <div class="time-chip">Coming Soon</div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="service-title">Towing / Vehicle Recovery</div>
+            <div class="service-meta">Pickup or recovery when you're stuck.</div>
+          </div>
+          <div class="time-chip">Coming Soon</div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="mini">AUTOZONE CENTRE • MARSA</div>
+    <div>Wash • Service • AC • Taxi — All in One Place</div>
+    <div class="legal-note">
+      © <span id="year"></span> AutoZone Centre. All rights reserved. AutoZoneCentreMalta.com
     </div>
-  </section>
+  </footer>
 
-  <!-- COMING SOON SECTION -->
-  <section class="section-block coming-soon">
-    <div class="section-head">
-      <div class="section-title">Coming Soon to AutoZone</div>
-      <div class="section-label">Upgrades</div>
-    </div>
-
-    <div class="grid">
-
-      <div class="card">
-        <div class="service-title">Tyre Changing</div>
-        <div class="service-meta">In-house tyre replacement & fitting.</div>
-        <span class="time-chip">Coming Soon</span>
-      </div>
-
-      <div class="card">
-        <div class="service-title">Mobile Car Wash</div>
-        <div class="service-meta">We come to your home or work.</div>
-        <span class="time-chip">Coming Soon</span>
-      </div>
-
-      <div class="card">
-        <div class="service-title">PDR – Dent Removal</div>
-        <div class="service-meta">Paintless dent repair without respray.</div>
-        <span class="time-chip">Coming Soon</span>
-      </div>
-
-      <div class="card">
-        <div class="service-title">Towing / Vehicle Recovery</div>
-        <div class="service-meta">Stuck on the road? We’ll handle it.</div>
-        <span class="time-chip">Coming Soon</span>
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="mini">AUTOZONE CENTRE • MARSA</div>
-  <div>Wash • Service • AC • Taxi — All in One Place</div>
-  <div class="legal-note">© <span id="year"></span> AutoZone Centre. All rights reserved.</div>
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
