@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior:smooth;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Contact | AutoZone Centre – Marsa, Malta</title>
+  <meta name="description" content="Contact AutoZone Centre in Marsa, Malta. Phone, WhatsApp, social links, opening hours and map.">
+  <meta name="theme-color" content="#0f0f0f">
+
+  <style>
+    :root {
+      --bg-dark: #0f0f0f;
+      --bg-card: #1a1a1a;
+      --yellow: #ffd500;
+      --text-light: #f5f5f5;
+      --text-dim: #9a9a9a;
+      --border-card: rgba(255,255,255,0.08);
+      --radius-lg: 20px;
+      --radius-sm: 12px;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Inter", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--yellow); text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* NAVBAR */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: rgba(15,15,15,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: .6rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .nav-logo {
+      height: 32px;
+      width: auto;
+    }
+
+    .brand-block {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand-name {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .brand-loc {
+      font-size: .7rem;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    nav.nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    .nav-link {
+      color: var(--text-light);
+      text-decoration: none;
+      padding: .45rem .7rem;
+      border-radius: 999px;
+      background-color: transparent;
+      border: 1px solid transparent;
+      transition: all .15s linear;
+    }
+
+    .nav-link:hover {
+      border-color: rgba(255,213,0,0.6);
+      background-color: rgba(255,213,0,0.08);
+      color: var(--yellow);
+    }
+
+    .nav-link.active {
+      border-color: rgba(255,213,0,0.9);
+      background-color: rgba(255,213,0,0.14);
+      color: var(--yellow);
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-cta {
+        display: inline-block;
+        background-color: var(--yellow);
+        color: #000;
+        font-weight: 600;
+        padding: .6rem .9rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: .8rem;
+        border: 0;
+        cursor: pointer;
+      }
+    }
+
+    /* LAYOUT */
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    .page-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: .25rem;
+    }
+
+    .page-sub {
+      font-size: .9rem;
+      color: var(--text-dim);
+      max-width: 700px;
+    }
+
+    .section-block { margin-top: 2.5rem; }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .5rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .section-label {
+      background: rgba(255,213,0,0.07);
+      border: 1px solid rgba(255,213,0,0.3);
+      color: var(--yellow);
+      font-size: .7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      border-radius: var(--radius-sm);
+      padding: .35rem .5rem;
+      line-height: 1.2;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-card);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+      padding: 1rem 1.25rem 1.4rem;
+    }
+
+    .contact-row {
+      margin-bottom: .9rem;
+    }
+
+    .contact-label {
+      font-size: .75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: .15rem;
+      font-weight: 500;
+    }
+
+    .contact-value {
+      font-size: .95rem;
+      color: var(--text-light);
+    }
+
+    .contact-value a {
+      color: var(--yellow);
+      font-weight: 600;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: .35rem;
+      padding: .25rem .6rem;
+      border-radius: 999px;
+      font-size: .7rem;
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--text-dim);
+    }
+
+    /* FORM */
+    form {
+      display: grid;
+      gap: .75rem;
+    }
+
+    label {
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      display: block;
+      margin-bottom: .2rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      background-color: #101010;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text-light);
+      padding: .6rem .75rem;
+      font-size: .9rem;
+      font-family: var(--font-main);
+      resize: vertical;
+    }
+
+    textarea { min-height: 130px; }
+
+    .form-row-inline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: .75rem;
+    }
+
+    .btn-main {
+      display: inline-block;
+      background-color: var(--yellow);
+      color: #000;
+      font-weight: 600;
+      padding: .75rem 1rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: .85rem;
+      border: 0;
+      cursor: pointer;
+      text-align: center;
+      min-width: 150px;
+    }
+
+    .helper-text {
+      font-size: .75rem;
+      color: var(--text-dim);
+      margin-top: .2rem;
+    }
+
+    /* MAP */
+    .map-wrapper {
+      margin-top: 1.25rem;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-card);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      min-height: 320px;
+      border: 0;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: .75rem;
+      padding: 3rem 1rem 2rem;
+      line-height: 1.4;
+    }
+
+    footer .mini {
+      color: var(--yellow);
+      font-weight: 600;
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    footer .legal-note { margin-top: .75rem; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/">
+          <img src="images/logo.png" alt="AutoZone Centre Logo" class="nav-logo">
+        </a>
+        <div class="brand-block">
+          <div class="brand-name">AUTOZONE CENTRE</div>
+          <div class="brand-loc">Marsa • Malta</div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/services.html" class="nav-link">Services</a>
+          <a href="/booking.html" class="nav-link">Booking</a>
+          <a href="/shop.html" class="nav-link">Shop</a>
+          <a href="/gallery.html" class="nav-link">Gallery</a>
+          <a href="/reviews.html" class="nav-link">Reviews</a>
+          <a href="/contact.html" class="nav-link active">Contact</a>
+        </nav>
+        <a href="/booking.html" class="nav-cta">Book Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- INTRO -->
+    <section>
+      <h1 class="page-title">Contact & Location</h1>
+      <p class="page-sub">
+        Reach us by phone, WhatsApp, or social — or send us a message using the form below.
+        You’ll find us in Marsa, easy access from all main routes.
+      </p>
+    </section>
+
+    <!-- CONTACT + HOURS -->
+    <section class="section-block">
+      <div class="section-head">
+        <div class="section-title">How to Reach Us</div>
+        <div class="section-label">Direct contact</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="contact-row">
+            <div class="contact-label">Phone</div>
+            <div class="contact-value">
+              <a href="tel:+35679470097">+356 7947 0097</a>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-label">WhatsApp</div>
+            <div class="contact-value">
+              <a href="https://wa.me/35679470097" target="_blank" rel="noopener">
+                Chat on WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-label">Email</div>
+            <div class="contact-value">
+              <a href="mailto:info@cablitd.com">info@cablitd.com</a>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-label">Social</div>
+            <div class="contact-value">
+              Instagram / Facebook: <strong>AutoZone Centre</strong>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-label">Address</div>
+            <div class="contact-value">
+              AutoZone Centre<br>
+              74A, Triq il-Princep Albertu,<br>
+              Marsa
+              <div class="badge">Easy access from main roads</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="contact-row">
+            <div class="contact-label">Car Wash Hours</div>
+            <div class="contact-value">
+              Mon – Sat: 09:00 – 17:00<br>
+              <span class="badge">By booking</span>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-label">Garage / Service Bay</div>
+            <div class="contact-value">
+              Tue – Fri: 09:00 – 15:00<br>
+              <span class="badge">By booking</span>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-label">Taxi Drop-Off</div>
+            <div class="contact-value">
+              Available on request when booking a wash or service.<br>
+              <span class="badge">Paid service • Price depends on distance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="section-block">
+      <div class="section-head">
+        <div class="section-title">Send Us a Message</div>
+        <div class="section-label">Netlify form</div>
+      </div>
+
+      <div class="card">
+        <form name="auto-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="auto-contact" />
+          <p style="display:none;">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="form-row-inline">
+            <div>
+              <label for="c-name">Name</label>
+              <input id="c-name" name="name" type="text" required />
+            </div>
+            <div>
+              <label for="c-phone">Phone</label>
+              <input id="c-phone" name="phone" type="text" />
+            </div>
+          </div>
+
+          <div>
+            <label for="c-email">Email</label>
+            <input id="c-email" name="email" type="email" />
+          </div>
+
+          <div>
+            <label for="c-message">Message</label>
+            <textarea id="c-message" name="message" required></textarea>
+            <div class="helper-text">
+              Tell us what you need — wash, deep clean, polish, service, PDR, or something else.
+            </div>
+          </div>
+
+          <button type="submit" class="btn-main">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="section-block">
+      <div class="section-head">
+        <div class="section-title">Find Us on the Map</div>
+        <div class="section-label">Google Maps</div>
+      </div>
+
+      <div class="map-wrapper">
+        <iframe
+          src="https://www.google.com/maps?q=AutoZone%20Centre%2074A%20Triq%20il-Princep%20Albertu%20Marsa&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="mini">AUTOZONE CENTRE • MARSA</div>
+    <div>Wash • Service • AC • Taxi — All in One Place</div>
+    <div class="legal-note">
+      © <span id="year"></span> AutoZone Centre. All rights reserved.
+      AutoZoneCentreMalta.com
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var yEl = document.getElementById('year');
+      if (yEl) yEl.textContent = new Date().getFullYear();
+    })();
+  </script>
+
+</body>
+</html>
