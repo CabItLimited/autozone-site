@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior:smooth;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Booking | AutoZone Centre – Marsa, Malta</title>
+  <meta name="description" content="Book a car wash, deep clean, polishing, basic service, PDR or taxi drop-off at AutoZone Centre, Marsa. All bookings handled via WhatsApp for live availability.">
+  <meta name="theme-color" content="#0f0f0f">
+
+  <style>
+    :root {
+      --bg-dark: #0f0f0f;
+      --bg-card: #1a1a1a;
+      --yellow: #ffd500;
+      --text-light: #f5f5f5;
+      --text-dim: #9a9a9a;
+      --border-card: rgba(255,255,255,0.08);
+      --radius-lg: 20px;
+      --radius-sm: 12px;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Inter", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: var(--yellow); }
+
+    /* NAVBAR */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: rgba(15,15,15,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: .6rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .nav-logo {
+      height: 32px;
+      width: auto;
+    }
+
+    .brand-block {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand-name {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .brand-loc {
+      font-size: .7rem;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    nav.nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    .nav-link {
+      color: var(--text-light);
+      text-decoration: none;
+      padding: .45rem .7rem;
+      border-radius: 999px;
+      background-color: transparent;
+      border: 1px solid transparent;
+      transition: all .15s linear;
+    }
+
+    .nav-link:hover {
+      border-color: rgba(255,213,0,0.6);
+      background-color: rgba(255,213,0,0.08);
+      color: var(--yellow);
+    }
+
+    .nav-link.active {
+      border-color: rgba(255,213,0,0.9);
+      background-color: rgba(255,213,0,0.14);
+      color: var(--yellow);
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-cta {
+        display: inline-block;
+        background-color: var(--yellow);
+        color: #000;
+        font-weight: 600;
+        padding: .6rem .9rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: .8rem;
+        border: 0;
+        cursor: pointer;
+      }
+    }
+
+    /* GLOBAL WRAPPER */
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    /* HERO */
+    .hero-booking {
+      margin-bottom: 2rem;
+    }
+
+    .hero-kicker {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: .35rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1.7rem,2.2vw,2.3rem);
+      font-weight: 600;
+      color: var(--text-light);
+      line-height: 1.2;
+      margin-bottom: .6rem;
+    }
+
+    .hero-desc {
+      font-size: .95rem;
+      color: var(--text-dim);
+      max-width: 760px;
+      margin-bottom: .75rem;
+    }
+
+    .hero-note {
+      font-size: .8rem;
+      color: var(--text-dim);
+    }
+
+    /* SECTIONS */
+    .section-block {
+      margin-top: 3rem;
+    }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .5rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-light);
+      line-height: 1.2;
+    }
+
+    .section-label {
+      background: rgba(255,213,0,0.07);
+      border: 1px solid rgba(255,213,0,0.3);
+      color: var(--yellow);
+      font-size: .7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      border-radius: var(--radius-sm);
+      padding: .35rem .5rem;
+      line-height: 1.2;
+    }
+
+    .section-note {
+      font-size: .8rem;
+      color: var(--text-dim);
+      margin-bottom: .75rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(320px,100%), 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-card);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+      padding: 1rem 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 170px;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: .5rem;
+      margin-bottom: .4rem;
+    }
+
+    .service-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-light);
+      line-height: 1.3;
+    }
+
+    .service-meta {
+      font-size: .85rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    .price-chip {
+      background: var(--yellow);
+      color: #000;
+      font-size: .8rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      padding: .35rem .6rem;
+      white-space: nowrap;
+    }
+
+    .tag-chip {
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius-sm);
+      padding: .3rem .55rem;
+      font-size: .7rem;
+      color: var(--text-dim);
+      display: inline-block;
+      margin-top: .4rem;
+    }
+
+    .time-chip {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text-light);
+      font-size: .7rem;
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+      padding: .35rem .6rem;
+      white-space: nowrap;
+      margin-top: .75rem;
+      display: inline-block;
+    }
+
+    .whatsapp-btn {
+      margin-top: 1rem;
+      background-color: var(--yellow);
+      color: #000;
+      font-weight: 600;
+      padding: .7rem .9rem;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      text-decoration: none;
+      font-size: .85rem;
+      border: 0;
+      cursor: pointer;
+      display: inline-block;
+      line-height: 1.2;
+    }
+
+    .hours-box {
+      margin-top: 1.25rem;
+      font-size: .85rem;
+      color: var(--text-dim);
+    }
+
+    .hours-box strong {
+      color: var(--text-light);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: .75rem;
+      padding: 3rem 1rem 2rem;
+      line-height: 1.4;
+    }
+
+    footer .mini {
+      color: var(--yellow);
+      font-weight: 600;
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    footer .legal-note { margin-top: .75rem; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/">
+          <img src="images/logo.png" alt="AutoZone Centre Logo" class="nav-logo">
+        </a>
+        <div class="brand-block">
+          <div class="brand-name">AUTOZONE CENTRE</div>
+          <div class="brand-loc">Marsa • Malta</div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/services.html" class="nav-link">Services</a>
+          <a href="/booking.html" class="nav-link active">Booking</a>
+          <a href="/shop.html" class="nav-link">Shop</a>
+          <a href="/gallery.html" class="nav-link">Gallery</a>
+          <a href="/reviews.html" class="nav-link">Reviews</a>
+          <a href="/contact.html" class="nav-link">Contact</a>
+        </nav>
+        <a href="/booking.html" class="nav-cta">Book Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- HERO -->
+    <section class="hero-booking">
+      <div class="hero-kicker">Booking</div>
+      <h1 class="hero-title">Book your slot via WhatsApp.</h1>
+      <p class="hero-desc">
+        All bookings at AutoZone Centre are handled <strong>directly on WhatsApp</strong> so we can confirm
+        live availability, car condition, and any extras you want to add.
+      </p>
+      <p class="hero-note">
+        Hit any button below – it will open a pre-filled WhatsApp message to <strong>+356 7947 0097</strong>.
+        You can still change the text before sending.
+      </p>
+      <div class="hours-box">
+        <strong>Wash Bay:</strong> Mon–Sat 09:00–17:00 (by booking)<br>
+        <strong>Service Bay:</strong> Tue–Fri 09:00–15:00 (by booking)
+      </div>
+    </section>
+
+    <!-- WASH BAY BOOKINGS -->
+    <section class="section-block" id="wash">
+      <div class="section-head">
+        <div class="section-title">Car Wash Bookings</div>
+        <div class="section-label">Wash Studio</div>
+      </div>
+
+      <div class="section-note">
+        Times are estimates and can change depending on how dirty the car is and how busy the bay is.
+      </div>
+
+      <div class="grid">
+
+        <!-- Basic -->
+        <div class="card">
+          <div>
+            <div class="card-head">
+              <div class="service-title">AutoZone Basic</div>
+              <div class="price-chip">€15</div>
+            </div>
+            <div class="service-meta">
+              Outside wash with wax shampoo only. Choose hand wash or pressure washer.
+            </div>
+            <span class="tag-chip">Exterior only</span>
+            <span class="time-chip">~40 min</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20book%20an%20AutoZone%20Basic%20(outside%20wash%20only)."
+             target="_blank" rel="noopener">
+            Book AutoZone Basic
+          </a>
+        </div>
+
+        <!-- Plus -->
+        <div class="card">
+          <div>
+            <div class="card-head">
+              <div class="service-title">AutoZone Plus</div>
+              <div class="price-chip">From €25</div>
+            </div>
+            <div class="service-meta">
+              Inside + outside wash: vacuum, plastics wiped, glass cleaned. Final price depends on how dirty the car is.
+            </div>
+            <span class="tag-chip">Interior &amp; exterior</span>
+            <span class="time-chip">~75 min</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20book%20AutoZone%20Plus%20(inside%20and%20outside)."
+             target="_blank" rel="noopener">
+            Book AutoZone Plus
+          </a>
+        </div>
+
+        <!-- Max -->
+        <div class="card">
+          <div>
+            <div class="card-head">
+              <div class="service-title">AutoZone Max</div>
+              <div class="price-chip">€35</div>
+            </div>
+            <div class="service-meta">
+              Inside, outside and engine bay cleaned. Full package if you want everything done in one go.
+            </div>
+            <span class="tag-chip">Interior • Exterior • Engine</span>
+            <span class="time-chip">~90 min</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20book%20AutoZone%20Max%20(inside%2C%20outside%20and%20engine)."
+             target="_blank" rel="noopener">
+            Book AutoZone Max
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DEEP CLEAN & EXTRAS BOOKINGS -->
+    <section class="section-block" id="deep">
+      <div class="section-head">
+        <div class="section-title">Deep Cleaning & Extras</div>
+        <div class="section-label">Detailing add-ons</div>
+      </div>
+
+      <div class="grid">
+
+        <!-- Deep interior -->
+        <div class="card">
+          <div>
+            <div class="card-head">
+              <div class="service-title">Deep Interior Clean</div>
+              <div class="price-chip">From €35</div>
+            </div>
+            <div class="service-meta">
+              Full interior deep clean using detailing brushes, rotary brushes and proper chemicals.
+              Final price depends on condition.
+            </div>
+            <span class="tag-chip">Interior only</span>
+            <span class="time-chip">~90 min</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20book%20a%20deep%20interior%20clean."
+             target="_blank" rel="noopener">
+            Book Deep Interior
+          </a>
+        </div>
+
+        <!-- Deep inside + outside -->
+        <div class="card">
+          <div>
+            <div class="card-head">
+              <div class="service-title">Deep Inside &amp; Outside</div>
+              <div class="price-chip">From €50</div>
+            </div>
+            <div class="service-meta">
+              Deep clean of interior + full exterior. Best for cars that have been neglected for a while.
+            </div>
+            <span class="tag-chip">Full deep detail</span>
+            <span class="time-chip">~120 min</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20book%20a%20deep%20inside%20and%20outside%20clean."
+             target="_blank" rel="noopener">
+            Book Deep In &amp; Out
+          </a>
+        </div>
+
+        <!-- Arches -->
+        <div class="card">
+          <div>
+            <div class="card-head">
+              <div class="service-title">Wheel Arches Clean</div>
+              <div class="price-chip">€5 / arch</div>
+            </div>
+            <div class="service-meta">
+              Wheels off, arches cleaned properly to remove built-up mud, salt and dirt.
+              Can be added to any wash or detail.
+            </div>
+            <span class="tag-chip">Add-on</span>
+            <span class="time-chip">~60 min</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20add%20wheel%20arches%20cleaning%20to%20my%20booking."
+             target="_blank" rel="noopener">
+            Add Arches Clean
+          </a>
+        </div>
+
+        <!-- Headlights -->
+        <div class="card">
+          <div>
+            <div class="card-head">
+              <div class="service-title">Headlight Polishing</div>
+              <div class="price-chip">€15 / light</div>
+            </div>
+            <div class="service-meta">
+              Restores faded or yellow headlights and improves light output.
+            </div>
+            <span class="tag-chip">Per headlight</span>
+            <span class="time-chip">Varies</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20book%20headlight%20polishing."
+             target="_blank" rel="noopener">
+            Book Headlight Polish
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- POLISHING BOOKINGS -->
+    <section class="section-block" id="polish">
+      <div class="section-head">
+        <div class="section-title">Polishing &amp; Paint Care</div>
+        <div class="section-label">By inspection</div>
+      </div>
+
+      <div class="section-note">
+        For polishing and paint work, we always confirm the price after we see the car in person.
+      </div>
+
+      <div class="grid">
+
+        <!-- Clay bar -->
+        <div class="card">
+          <div>
+            <div class="card-head">
+              <div class="service-title">Clay Bar Treatment</div>
+              <div class="price-chip">From €80</div>
+            </div>
+            <div class="service-meta">
+              Removes bonded contamination from the paint before polishing or protection.
+              Price depends on car size and paint condition.
+            </div>
+            <span class="tag-chip">Prep for polishing</span>
+            <span class="time-chip">2–3 hours</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20ask%20about%20a%20clay%20bar%20treatment%20and%20book%20an%20inspection."
+             target="_blank" rel="noopener">
+            Ask About Clay Bar
+          </a>
+        </div>
+
+        <!-- One step -->
+        <div class="card">
+          <div>
+            <div class="card-head">
+              <div class="service-title">One-Step Polish</div>
+              <div class="price-chip">From €120</div>
+            </div>
+            <div class="service-meta">
+              Single-stage machine polish to boost gloss and remove light defects.
+            </div>
+            <span class="tag-chip">Gloss boost</span>
+            <span class="time-chip">3–4 hours</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20book%20an%20inspection%20for%20a%20one-step%20polish."
+             target="_blank" rel="noopener">
+            Book for One-Step
+          </a>
+        </div>
+
+        <!-- Two step -->
+        <div class="card">
+          <div>
+            <div class="card-head">
+              <div class="service-title">Two-Step Polish</div>
+              <div class="price-chip">On inspection</div>
+            </div>
+            <div class="service-meta">
+              Cut + refine for cars with swirl marks and more visible defects.
+            </div>
+            <span class="tag-chip">Correction &amp; gloss</span>
+            <span class="time-chip">Varies</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20book%20an%20inspection%20for%20a%20two-step%20polish."
+             target="_blank" rel="noopener">
+            Book for Two-Step
+          </a>
+        </div>
+
+        <!-- Three step -->
+        <div class="card">
+          <div>
+            <div class="card-head">
+              <div class="service-title">Three-Step Polish + 1-Year Sealant</div>
+              <div class="price-chip">On inspection</div>
+            </div>
+            <div class="service-meta">
+              Multi-stage correction with a 1-year protection sealant on the paint.
+            </div>
+            <span class="tag-chip">Heavy correction + protection</span>
+            <span class="time-chip">Varies</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20book%20an%20inspection%20for%20a%20three-step%20polish%20with%201-year%20sealant."
+             target="_blank" rel="noopener">
+            Book for Three-Step
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GARAGE BOOKINGS -->
+    <section class="section-block" id="garage">
+      <div class="section-head">
+        <div class="section-title">Garage Service Bookings</div>
+        <div class="section-label">Basic servicing</div>
+      </div>
+
+      <div class="section-note">
+        For most garage jobs we prefer <strong>9AM drop-off</strong> and <strong>afternoon collection</strong> so we have time to check and work on the car properly.
+      </div>
+
+      <div class="grid">
+
+        <!-- Basic service -->
+        <div class="card">
+          <div>
+            <div class="card-head">
+              <div class="service-title">Basic Service / Oil Change</div>
+              <div class="price-chip">From €50</div>
+            </div>
+            <div class="service-meta">
+              Standard oil change and basic checks. Final price depends on oil type and any extras needed.
+            </div>
+            <span class="tag-chip">Service labour</span>
+            <span class="time-chip">9AM drop-off, afternoon return</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20book%20a%20basic%20service%20or%20oil%20change%20(9AM%20drop-off)."
+             target="_blank" rel="noopener">
+            Book Basic Service
+          </a>
+        </div>
+
+        <!-- Filters & fluids -->
+        <div class="card">
+          <div>
+            <div class="card-head">
+              <div class="service-title">Filters &amp; Fluids</div>
+            </div>
+            <div class="service-meta">
+              Oil, air, fuel and A/C filters changed as needed. Water / coolant refreshed to protect the engine.
+            </div>
+            <span class="tag-chip">Filters • Coolant</span>
+            <span class="time-chip">9AM drop-off, afternoon return</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20ask%20about%20filters%20or%20coolant%20change%20and%20book%20a%20slot."
+             target="_blank" rel="noopener">
+            Ask About Filters / Coolant
+          </a>
+        </div>
+
+        <!-- Brakes / clutch -->
+        <div class="card">
+          <div>
+            <div class="card-head">
+              <div class="service-title">Brake Pads &amp; Clutch (Basic)</div>
+            </div>
+            <div class="service-meta">
+              Brake pad replacements and, where suitable, basic clutch jobs. We confirm if we can take the job after inspection.
+            </div>
+            <span class="tag-chip">Safety items</span>
+            <span class="time-chip">9AM drop-off, afternoon return</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20ask%20about%20brake%20pads%20or%20clutch%20work%20and%20book%20a%20slot."
+             target="_blank" rel="noopener">
+            Ask About Brakes / Clutch
+          </a>
+        </div>
+
+        <!-- Diagnostic -->
+        <div class="card">
+          <div>
+            <div class="card-head">
+              <div class="service-title">Diagnostic Scan</div>
+            </div>
+            <div class="service-meta">
+              Quick scan to read fault codes and help you decide what to do next before spending money.
+            </div>
+            <span class="tag-chip">Fault check</span>
+            <span class="time-chip">~15 min</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20book%20a%20diagnostic%20scan."
+             target="_blank" rel="noopener">
+            Book Diagnostic Scan
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PDR BOOKINGS -->
+    <section class="section-block" id="pdr">
+      <div class="section-head">
+        <div class="section-title">PDR (Paintless Dent Removal)</div>
+        <div class="section-label">Partner technician</div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div>
+            <div class="service-title">Dent Removal via AutoZone</div>
+            <div class="service-meta">
+              We work with a specialist PDR technician nearby. You leave the car with us, we handle it with him,
+              and you collect it back from AutoZone.
+              Pricing depends on dent size, location and how many panels are affected.
+            </div>
+            <span class="tag-chip">Outsourced • Managed by us</span>
+            <span class="time-chip">9AM drop-off, afternoon return</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20ask%20about%20PDR%20(dent%20removal)%20and%20book%20a%20slot."
+             target="_blank" rel="noopener">
+            Ask About PDR
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAXI BOOKINGS -->
+    <section class="section-block" id="taxi">
+      <div class="section-head">
+        <div class="section-title">Taxi &amp; Drop-Off</div>
+        <div class="section-label">Paid add-on</div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div>
+            <div class="service-title">Book Service + Taxi Drop-Off</div>
+            <div class="service-meta">
+              Leave your car with us and we can drive you to work or home in one of our white-plate cabs.
+              You come back later to a washed, polished or serviced car.
+              This is a <strong>paid service</strong> – price depends on distance and route, confirmed before the trip.
+            </div>
+            <span class="tag-chip">Licensed LPTV • White plate</span>
+            <span class="time-chip">Varies by distance</span>
+          </div>
+          <a class="whatsapp-btn"
+             href="https://wa.me/35679470097?text=Hi%2C%20I%20want%20to%20book%20a%20service%20with%20taxi%20drop-off."
+             target="_blank" rel="noopener">
+            Book Service + Taxi
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="mini">AUTOZONE CENTRE • MARSA</div>
+    <div>Wash • Service • AC • Taxi — All in One Place</div>
+    <div class="legal-note">
+      © <span id="year"></span> AutoZone Centre. All rights reserved.
+      AutoZoneCentreMalta.com
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var yEl = document.getElementById('year');
+      if (yEl) yEl.textContent = new Date().getFullYear();
+    })();
+  </script>
+
+</body>
+</html>
