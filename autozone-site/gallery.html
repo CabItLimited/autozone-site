@@ -34,6 +34,7 @@
     img { max-width: 100%; display: block; }
     a { color: var(--yellow); }
 
+    /* NAVBAR */
     header.site-header {
       position: sticky;
       top: 0;
@@ -61,11 +62,13 @@
 
     .nav-logo {
       height: 32px;
+      width: auto;
     }
 
     .brand-block {
       display: flex;
       flex-direction: column;
+      line-height: 1.2;
     }
 
     .brand-name {
@@ -79,10 +82,18 @@
     .brand-loc {
       font-size: .7rem;
       color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
     }
 
     nav.nav-links {
       display: flex;
+      flex-wrap: wrap;
       gap: .35rem;
       font-size: .8rem;
       font-weight: 600;
@@ -93,98 +104,184 @@
       text-decoration: none;
       padding: .45rem .7rem;
       border-radius: 999px;
+      background-color: transparent;
+      border: 1px solid transparent;
+      transition: all .15s linear;
+    }
+
+    .nav-link:hover {
+      border-color: rgba(255,213,0,0.6);
+      background-color: rgba(255,213,0,0.08);
+      color: var(--yellow);
     }
 
     .nav-link.active {
-      background: rgba(255,213,0,0.14);
+      border-color: rgba(255,213,0,0.9);
+      background-color: rgba(255,213,0,0.14);
       color: var(--yellow);
-      border: 1px solid rgba(255,213,0,0.9);
     }
 
+    .nav-cta {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-cta {
+        display: inline-block;
+        background-color: var(--yellow);
+        color: #000;
+        font-weight: 600;
+        padding: .6rem .9rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: .8rem;
+        border: 0;
+        cursor: pointer;
+      }
+    }
+
+    /* GLOBAL WRAPPER */
     .wrap {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2.5rem 1.25rem 4rem;
     }
 
+    /* HERO */
+    .hero-gallery {
+      margin-bottom: 1.5rem;
+    }
+
     .hero-kicker {
       font-size: .8rem;
       font-weight: 700;
       color: var(--yellow);
+      letter-spacing: .08em;
       text-transform: uppercase;
+      margin-bottom: .35rem;
     }
 
     .hero-title {
       font-size: clamp(1.7rem,2.2vw,2.3rem);
       font-weight: 600;
+      color: var(--text-light);
+      line-height: 1.2;
       margin-bottom: .6rem;
     }
 
-    .hero-desc, .hero-note {
+    .hero-desc {
+      font-size: .95rem;
       color: var(--text-dim);
-      font-size: .9rem;
+      max-width: 760px;
+      margin-bottom: .75rem;
     }
 
+    .hero-note {
+      font-size: .8rem;
+      color: var(--text-dim);
+    }
+
+    /* CATEGORY NAV */
     .category-nav {
       display: flex;
-      gap: .5rem;
-      margin: 1.75rem 0;
       flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1.75rem 0 1.5rem;
     }
 
     .cat-link {
+      text-decoration: none;
       font-size: .8rem;
+      font-weight: 600;
+      color: var(--text-light);
       padding: .45rem .8rem;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.18);
-      text-decoration: none;
-      color: var(--text-light);
+      background: rgba(255,255,255,0.02);
+      transition: all .15s linear;
+      white-space: nowrap;
     }
 
-    .section-block { margin-top: 3rem; }
+    .cat-link:hover {
+      border-color: rgba(255,213,0,0.7);
+      background: rgba(255,213,0,0.12);
+      color: var(--yellow);
+    }
+
+    /* SECTIONS */
+    .section-block {
+      margin-top: 3rem;
+    }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .5rem;
+      margin-bottom: 1rem;
+    }
 
     .section-title {
       font-size: 1.2rem;
       font-weight: 600;
+      color: var(--text-light);
+      line-height: 1.2;
     }
 
     .section-label {
-      font-size: .7rem;
       background: rgba(255,213,0,0.07);
       border: 1px solid rgba(255,213,0,0.3);
       color: var(--yellow);
+      font-size: .7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      border-radius: var(--radius-sm);
       padding: .35rem .5rem;
-      border-radius: 12px;
-      margin-left: .5rem;
+      line-height: 1.2;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(260px,100%), 1fr));
       gap: 1rem;
     }
 
     .photo-card {
-      background: var(--bg-card);
-      border-radius: 20px;
-      overflow: hidden;
+      background-color: var(--bg-card);
+      border-radius: var(--radius-lg);
       border: 1px solid var(--border-card);
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.85);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .photo-wrapper {
+      position: relative;
+      overflow: hidden;
     }
 
     .photo-wrapper img {
-      height: 220px;
       width: 100%;
+      height: 220px;
       object-fit: cover;
+      transition: transform .25s ease-out;
+    }
+
+    .photo-card:hover .photo-wrapper img {
+      transform: scale(1.04);
     }
 
     .photo-caption {
-      padding: .8rem;
+      padding: .75rem .9rem .8rem;
       font-size: .8rem;
       color: var(--text-dim);
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
 
     .photo-caption strong {
       color: var(--text-light);
+      font-weight: 600;
     }
 
     footer {
@@ -192,80 +289,310 @@
       color: var(--text-dim);
       font-size: .75rem;
       padding: 3rem 1rem 2rem;
+      line-height: 1.4;
     }
 
     footer .mini {
       color: var(--yellow);
       font-weight: 600;
       font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
+
+    footer .legal-note { margin-top: .75rem; }
   </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="nav-inner">
-    <div class="nav-left">
-      <img src="images/logo.png" class="nav-logo" alt="AutoZone Centre">
-      <div class="brand-block">
-        <div class="brand-name">AUTOZONE CENTRE</div>
-        <div class="brand-loc">Marsa • Malta</div>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/">
+          <img src="images/logo.png" alt="AutoZone Centre Logo" class="nav-logo">
+        </a>
+        <div class="brand-block">
+          <div class="brand-name">AUTOZONE CENTRE</div>
+          <div class="brand-loc">Marsa • Malta</div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/services.html" class="nav-link">Services</a>
+          <a href="/booking.html" class="nav-link">Booking</a>
+          <a href="/shop.html" class="nav-link">Shop</a>
+          <a href="/gallery.html" class="nav-link active">Gallery</a>
+          <a href="/reviews.html" class="nav-link">Reviews</a>
+          <a href="/contact.html" class="nav-link">Contact</a>
+        </nav>
+        <a href="/booking.html" class="nav-cta">Book Now</a>
       </div>
     </div>
-    <nav class="nav-links">
-      <a href="/" class="nav-link">Home</a>
-      <a href="/gallery.html" class="nav-link active">Gallery</a>
+  </header>
+
+  <main class="wrap">
+
+    <!-- HERO -->
+    <section class="hero-gallery">
+      <div class="hero-kicker">Gallery</div>
+      <h1 class="hero-title">Real work from AutoZone Centre.</h1>
+      <p class="hero-desc">
+        These are not stock photos—just real washes, deep interiors, polish jobs, basic services,
+        dent removal and taxi drop-offs done at AutoZone Centre in Marsa.
+      </p>
+      <p class="hero-note">
+        As we go, we’ll keep adding more before/after sets and fresh work so you can see exactly what we do.
+      </p>
+    </section>
+
+    <!-- CATEGORY NAV -->
+    <nav class="category-nav">
+      <a href="#wash-detailing" class="cat-link">Car Wash &amp; Detailing</a>
+      <a href="#polish" class="cat-link">Polishing &amp; Clay Bar</a>
+      <a href="#garage" class="cat-link">Garage</a>
+      <a href="#pdr" class="cat-link">PDR (Dent Removal)</a>
+      <a href="#taxi" class="cat-link">Taxi &amp; Drop-Off</a>
     </nav>
-  </div>
-</header>
 
-<main class="wrap">
-
-<section class="hero-gallery">
-  <div class="hero-kicker">Gallery</div>
-  <h1 class="hero-title">Real work from AutoZone Centre.</h1>
-  <p class="hero-desc">
-    These are not stock photos — just real cars worked on at AutoZone Centre in Marsa.
-  </p>
-</section>
-
-<section class="section-block" id="wash-detailing">
-  <div class="section-head">
-    <div class="section-title">Car Wash &amp; Detailing</div>
-    <div class="section-label">Wash Studio</div>
-  </div>
-
-  <div class="grid">
-
-    <!-- NEW PHOTO ADDED -->
-    <div class="photo-card">
-      <div class="photo-wrapper">
-        <img src="images/gallery/wash-01.jpg"
-             alt="Clean car after full AutoZone Max wash"
-             loading="lazy">
+    <!-- WASH & DETAILING -->
+    <section class="section-block" id="wash-detailing">
+      <div class="section-head">
+        <div class="section-title">Car Wash &amp; Detailing</div>
+        <div class="section-label">Wash Studio</div>
       </div>
-      <div class="photo-caption">
-        <strong>AutoZone Max – clean finish</strong><br>
-        Clean car after a full AutoZone Max wash, inside, outside and engine bay.
+
+      <div class="grid">
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/wash-01.jpg" alt="Clean car after full AutoZone Max wash" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>AutoZone Max – inside, outside &amp; engine</strong><br>
+            Full wash package on a daily car that needed everything done in one go.
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/wash-02.jpg" alt="Interior after deep clean with detailing brushes" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>Deep interior clean</strong><br>
+            Seats, carpets, plastics and all the small gaps cleaned with detailing brushes.
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/wash-03.jpg" alt="Foam wash in progress at AutoZone Centre" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>Foam wash in progress</strong><br>
+            Pre-wash and contact wash to reduce scratches and swirl marks.
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/wash-04.jpg" alt="Wheel arches and rims cleaned thoroughly" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>Wheel arches &amp; rims</strong><br>
+            Wheels off, arches washed and rims cleaned properly, not just a quick spray.
+          </div>
+        </div>
+
       </div>
+    </section>
+
+    <!-- POLISH & CLAY -->
+    <section class="section-block" id="polish">
+      <div class="section-head">
+        <div class="section-title">Polishing &amp; Clay Bar</div>
+        <div class="section-label">Paint care</div>
+      </div>
+
+      <div class="grid">
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/polish-01.jpg" alt="Before and after one-step polish on car paint" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>One-step polish – before &amp; after</strong><br>
+            Swirl marks reduced and gloss restored on a daily driven car.
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/polish-02.jpg" alt="Close up of clay bar treatment removing contamination" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>Clay bar treatment</strong><br>
+            Paint decontamination before polishing and protection.
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/polish-03.jpg" alt="Machine polishing on a dark coloured car" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>Machine polishing</strong><br>
+            Careful correction work on darker colours to avoid holograms.
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/polish-04.jpg" alt="Finished polished car reflecting light" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>Finished result</strong><br>
+            Proper gloss and reflection after correction work and protection.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GARAGE -->
+    <section class="section-block" id="garage">
+      <div class="section-head">
+        <div class="section-title">Garage</div>
+        <div class="section-label">Service bay</div>
+      </div>
+
+      <div class="grid">
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/garage-01.jpg" alt="Car on lift for basic service and oil change" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>Basic service in the bay</strong><br>
+            Oil changes and basic checks done from our service bay in Marsa.
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/garage-02.jpg" alt="Brake pads being checked and replaced" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>Brake pads and safety items</strong><br>
+            Replacing worn pads and checking discs where needed.
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/garage-03.jpg" alt="Engine bay during coolant and fluids check" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>Fluids &amp; coolant check</strong><br>
+            Making sure coolant and other fluids are at the right level and condition.
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/garage-04.jpg" alt="Diagnostic scan being carried out" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>Diagnostic scan</strong><br>
+            Reading fault codes to help you decide what to fix next.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PDR -->
+    <section class="section-block" id="pdr">
+      <div class="section-head">
+        <div class="section-title">PDR (Paintless Dent Removal)</div>
+        <div class="section-label">Partner technician</div>
+      </div>
+
+      <div class="grid">
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/pdr-01.jpg" alt="Before and after dent removal using PDR" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>Before &amp; after PDR</strong><br>
+            Dents removed through our partner PDR technician without respraying the panel.
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/pdr-02.jpg" alt="Panel after paintless dent removal looking straight again" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>Panel straight again</strong><br>
+            Real result after PDR handled through AutoZone Centre.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TAXI & DROP OFF -->
+    <section class="section-block" id="taxi">
+      <div class="section-head">
+        <div class="section-title">Taxi &amp; Drop-Off</div>
+        <div class="section-label">LPTV white plates</div>
+      </div>
+
+      <div class="grid">
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/taxi-01.jpg" alt="AutoZone white plate cab used for drop-off service" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>Taxi drop-off while we work</strong><br>
+            One of our cabs used to drop clients to work or home after they leave the car with us.
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/gallery/taxi-02.jpg" alt="Taxi and washed car ready for collection" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <strong>Car ready on collection</strong><br>
+            Washed or serviced car waiting for you after using our taxi + workshop combo.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="mini">AUTOZONE CENTRE • MARSA</div>
+    <div>Wash • Service • AC • Taxi — All in One Place</div>
+    <div class="legal-note">
+      © <span id="year"></span> AutoZone Centre. All rights reserved.
+      AutoZoneCentreMalta.com
     </div>
+  </footer>
 
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="mini">AUTOZONE CENTRE • MARSA</div>
-  <div>Wash • Service • AC • Taxi — All in One Place</div>
-  <div class="legal-note">
-    © <span id="year"></span> AutoZone Centre. All rights reserved.
-  </div>
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  <script>
+    (function(){
+      var yEl = document.getElementById('year');
+      if (yEl) yEl.textContent = new Date().getFullYear();
+    })();
+  </script>
 
 </body>
 </html>
