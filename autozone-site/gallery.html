@@ -34,7 +34,6 @@
     img { max-width: 100%; display: block; }
     a { color: var(--yellow); }
 
-    /* NAVBAR */
     header.site-header {
       position: sticky;
       top: 0;
@@ -62,13 +61,11 @@
 
     .nav-logo {
       height: 32px;
-      width: auto;
     }
 
     .brand-block {
       display: flex;
       flex-direction: column;
-      line-height: 1.2;
     }
 
     .brand-name {
@@ -82,18 +79,10 @@
     .brand-loc {
       font-size: .7rem;
       color: var(--text-dim);
-      font-weight: 500;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
     }
 
     nav.nav-links {
       display: flex;
-      flex-wrap: wrap;
       gap: .35rem;
       font-size: .8rem;
       font-weight: 600;
@@ -104,185 +93,98 @@
       text-decoration: none;
       padding: .45rem .7rem;
       border-radius: 999px;
-      background-color: transparent;
-      border: 1px solid transparent;
-      transition: all .15s linear;
-    }
-
-    .nav-link:hover {
-      border-color: rgba(255,213,0,0.6);
-      background-color: rgba(255,213,0,0.08);
-      color: var(--yellow);
     }
 
     .nav-link.active {
-      border-color: rgba(255,213,0,0.9);
-      background-color: rgba(255,213,0,0.14);
+      background: rgba(255,213,0,0.14);
       color: var(--yellow);
+      border: 1px solid rgba(255,213,0,0.9);
     }
 
-    .nav-cta {
-      display: none;
-    }
-
-    @media (min-width: 768px) {
-      .nav-cta {
-        display: inline-block;
-        background-color: var(--yellow);
-        color: #000;
-        font-weight: 600;
-        padding: .6rem .9rem;
-        border-radius: 999px;
-        text-decoration: none;
-        font-size: .8rem;
-        border: 0;
-        cursor: pointer;
-      }
-    }
-
-    /* GLOBAL WRAPPER */
     .wrap {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2.5rem 1.25rem 4rem;
     }
 
-    /* HERO */
-    .hero-gallery {
-      margin-bottom: 1.5rem;
-    }
-
     .hero-kicker {
       font-size: .8rem;
       font-weight: 700;
       color: var(--yellow);
-      letter-spacing: .08em;
       text-transform: uppercase;
-      margin-bottom: .35rem;
     }
 
     .hero-title {
       font-size: clamp(1.7rem,2.2vw,2.3rem);
       font-weight: 600;
-      color: var(--text-light);
-      line-height: 1.2;
       margin-bottom: .6rem;
     }
 
-    .hero-desc {
-      font-size: .95rem;
+    .hero-desc, .hero-note {
       color: var(--text-dim);
-      max-width: 760px;
-      margin-bottom: .75rem;
+      font-size: .9rem;
     }
 
-    .hero-note {
-      font-size: .8rem;
-      color: var(--text-dim);
-    }
-
-    /* CATEGORY NAV */
     .category-nav {
       display: flex;
-      flex-wrap: wrap;
       gap: .5rem;
-      margin: 1.75rem 0 1.5rem;
+      margin: 1.75rem 0;
+      flex-wrap: wrap;
     }
 
     .cat-link {
-      text-decoration: none;
       font-size: .8rem;
-      font-weight: 600;
-      color: var(--text-light);
       padding: .45rem .8rem;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.02);
-      transition: all .15s linear;
-      white-space: nowrap;
+      text-decoration: none;
+      color: var(--text-light);
     }
 
-    .cat-link:hover {
-      border-color: rgba(255,213,0,0.7);
-      background: rgba(255,213,0,0.12);
-      color: var(--yellow);
-    }
-
-    /* SECTIONS */
-    .section-block {
-      margin-top: 3rem;
-    }
-
-    .section-head {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: .5rem;
-      margin-bottom: 1rem;
-    }
+    .section-block { margin-top: 3rem; }
 
     .section-title {
       font-size: 1.2rem;
       font-weight: 600;
-      color: var(--text-light);
-      line-height: 1.2;
     }
 
     .section-label {
+      font-size: .7rem;
       background: rgba(255,213,0,0.07);
       border: 1px solid rgba(255,213,0,0.3);
       color: var(--yellow);
-      font-size: .7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      border-radius: var(--radius-sm);
       padding: .35rem .5rem;
-      line-height: 1.2;
+      border-radius: 12px;
+      margin-left: .5rem;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(260px,100%), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1rem;
     }
 
     .photo-card {
-      background-color: var(--bg-card);
-      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border-radius: 20px;
+      overflow: hidden;
       border: 1px solid var(--border-card);
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.85);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .photo-wrapper {
-      position: relative;
-      overflow: hidden;
-      cursor: zoom-in;
     }
 
     .photo-wrapper img {
-      width: 100%;
       height: 220px;
+      width: 100%;
       object-fit: cover;
-      transition: transform .25s ease-out;
-    }
-
-    .photo-card:hover .photo-wrapper img {
-      transform: scale(1.04);
     }
 
     .photo-caption {
-      padding: .75rem .9rem .8rem;
+      padding: .8rem;
       font-size: .8rem;
       color: var(--text-dim);
-      border-top: 1px solid rgba(255,255,255,0.06);
     }
 
     .photo-caption strong {
       color: var(--text-light);
-      font-weight: 600;
     }
 
     footer {
@@ -290,558 +192,80 @@
       color: var(--text-dim);
       font-size: .75rem;
       padding: 3rem 1rem 2rem;
-      line-height: 1.4;
     }
 
     footer .mini {
       color: var(--yellow);
       font-weight: 600;
       font-size: .8rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    footer .legal-note { margin-top: .75rem; }
-
-    /* LIGHTBOX UPGRADE */
-    .lb {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.86);
-      backdrop-filter: blur(6px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-      padding: 1rem;
-    }
-
-    .lb[aria-hidden="false"] { display: flex; }
-
-    .lb-dialog {
-      width: min(980px, 100%);
-      max-height: 92vh;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      gap: .75rem;
-    }
-
-    .lb-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: .75rem;
-    }
-
-    .lb-title {
-      font-size: .85rem;
-      color: var(--text-dim);
-      margin: 0;
-    }
-
-    .lb-btn {
-      appearance: none;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.06);
-      color: var(--text-light);
-      border-radius: 999px;
-      padding: .55rem .8rem;
-      font-size: .8rem;
-      cursor: pointer;
-      transition: all .15s linear;
-      line-height: 1;
-      user-select: none;
-    }
-
-    .lb-btn:hover {
-      border-color: rgba(255,213,0,0.7);
-      background: rgba(255,213,0,0.12);
-      color: var(--yellow);
-    }
-
-    .lb-stage {
-      background: rgba(15,15,15,0.55);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-      position: relative;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.85);
-    }
-
-    .lb-stage img {
-      width: 100%;
-      height: auto;
-      max-height: 70vh;
-      object-fit: contain;
-      display: block;
-    }
-
-    .lb-nav {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      pointer-events: none;
-      padding: 0 .5rem;
-    }
-
-    .lb-nav .lb-btn {
-      pointer-events: all;
-      background: rgba(0,0,0,0.35);
-    }
-
-    .lb-caption {
-      font-size: .85rem;
-      color: var(--text-dim);
-      background: rgba(0,0,0,0.28);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: var(--radius-lg);
-      padding: .85rem 1rem;
-    }
-
-    .lb-caption strong { color: var(--text-light); }
-
-    @media (max-width: 520px) {
-      .lb-stage img { max-height: 62vh; }
-      .lb-btn { padding: .55rem .7rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header class="site-header">
-    <div class="nav-inner">
-      <div class="nav-left">
-        <a href="/">
-          <img src="images/logo.png" alt="AutoZone Centre Logo" class="nav-logo">
-        </a>
-        <div class="brand-block">
-          <div class="brand-name">AUTOZONE CENTRE</div>
-          <div class="brand-loc">Marsa • Malta</div>
-        </div>
-      </div>
-      <div class="nav-right">
-        <nav class="nav-links">
-          <a href="/" class="nav-link">Home</a>
-          <a href="/services.html" class="nav-link">Services</a>
-          <a href="/booking.html" class="nav-link">Booking</a>
-          <a href="/shop.html" class="nav-link">Shop</a>
-          <a href="/gallery.html" class="nav-link active">Gallery</a>
-          <a href="/reviews.html" class="nav-link">Reviews</a>
-          <a href="/contact.html" class="nav-link">Contact</a>
-        </nav>
-        <a href="/booking.html" class="nav-cta">Book Now</a>
+<header class="site-header">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <img src="images/logo.png" class="nav-logo" alt="AutoZone Centre">
+      <div class="brand-block">
+        <div class="brand-name">AUTOZONE CENTRE</div>
+        <div class="brand-loc">Marsa • Malta</div>
       </div>
     </div>
-  </header>
-
-  <main class="wrap">
-
-    <!-- HERO -->
-    <section class="hero-gallery">
-      <div class="hero-kicker">Gallery</div>
-      <h1 class="hero-title">Real work from AutoZone Centre.</h1>
-      <p class="hero-desc">
-        These are not stock photos—just real washes, deep interiors, polish jobs, basic services,
-        dent removal and taxi drop-offs done at AutoZone Centre in Marsa.
-      </p>
-      <p class="hero-note">
-        As we go, we’ll keep adding more before/after sets and fresh work so you can see exactly what we do.
-      </p>
-    </section>
-
-    <!-- CATEGORY NAV -->
-    <nav class="category-nav">
-      <a href="#wash-detailing" class="cat-link">Car Wash &amp; Detailing</a>
-      <a href="#polish" class="cat-link">Polishing &amp; Clay Bar</a>
-      <a href="#garage" class="cat-link">Garage</a>
-      <a href="#pdr" class="cat-link">PDR (Dent Removal)</a>
-      <a href="#taxi" class="cat-link">Taxi &amp; Drop-Off</a>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/gallery.html" class="nav-link active">Gallery</a>
     </nav>
+  </div>
+</header>
 
-    <!-- WASH & DETAILING -->
-    <section class="section-block" id="wash-detailing">
-      <div class="section-head">
-        <div class="section-title">Car Wash &amp; Detailing</div>
-        <div class="section-label">Wash Studio</div>
-      </div>
+<main class="wrap">
 
-      <div class="grid">
+<section class="hero-gallery">
+  <div class="hero-kicker">Gallery</div>
+  <h1 class="hero-title">Real work from AutoZone Centre.</h1>
+  <p class="hero-desc">
+    These are not stock photos — just real cars worked on at AutoZone Centre in Marsa.
+  </p>
+</section>
 
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/wash-01.jpg" alt="Clean car after full AutoZone Max wash" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>AutoZone Max – inside, outside &amp; engine</strong><br>
-            Full wash package on a daily car that needed everything done in one go.
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/wash-02.jpg" alt="Interior after deep clean with detailing brushes" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>Deep interior clean</strong><br>
-            Seats, carpets, plastics and all the small gaps cleaned with detailing brushes.
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/wash-03.jpg" alt="Foam wash in progress at AutoZone Centre" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>Foam wash in progress</strong><br>
-            Pre-wash and contact wash to reduce scratches and swirl marks.
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/wash-04.jpg" alt="Wheel arches and rims cleaned thoroughly" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>Wheel arches &amp; rims</strong><br>
-            Wheels off, arches washed and rims cleaned properly, not just a quick spray.
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- POLISH & CLAY -->
-    <section class="section-block" id="polish">
-      <div class="section-head">
-        <div class="section-title">Polishing &amp; Clay Bar</div>
-        <div class="section-label">Paint care</div>
-      </div>
-
-      <div class="grid">
-
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/polish-01.jpg" alt="Before and after one-step polish on car paint" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>One-step polish – before &amp; after</strong><br>
-            Swirl marks reduced and gloss restored on a daily driven car.
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/polish-02.jpg" alt="Close up of clay bar treatment removing contamination" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>Clay bar treatment</strong><br>
-            Paint decontamination before polishing and protection.
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/polish-03.jpg" alt="Machine polishing on a dark coloured car" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>Machine polishing</strong><br>
-            Careful correction work on darker colours to avoid holograms.
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/polish-04.jpg" alt="Finished polished car reflecting light" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>Finished result</strong><br>
-            Proper gloss and reflection after correction work and protection.
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- GARAGE -->
-    <section class="section-block" id="garage">
-      <div class="section-head">
-        <div class="section-title">Garage</div>
-        <div class="section-label">Service bay</div>
-      </div>
-
-      <div class="grid">
-
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/garage-01.jpg" alt="Car on lift for basic service and oil change" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>Basic service in the bay</strong><br>
-            Oil changes and basic checks done from our service bay in Marsa.
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/garage-02.jpg" alt="Brake pads being checked and replaced" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>Brake pads and safety items</strong><br>
-            Replacing worn pads and checking discs where needed.
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/garage-03.jpg" alt="Engine bay during coolant and fluids check" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>Fluids &amp; coolant check</strong><br>
-            Making sure coolant and other fluids are at the right level and condition.
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/garage-04.jpg" alt="Diagnostic scan being carried out" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>Diagnostic scan</strong><br>
-            Reading fault codes to help you decide what to fix next.
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PDR -->
-    <section class="section-block" id="pdr">
-      <div class="section-head">
-        <div class="section-title">PDR (Paintless Dent Removal)</div>
-        <div class="section-label">Partner technician</div>
-      </div>
-
-      <div class="grid">
-
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/pdr-01.jpg" alt="Before and after dent removal using PDR" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>Before &amp; after PDR</strong><br>
-            Dents removed through our partner PDR technician without respraying the panel.
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/pdr-02.jpg" alt="Panel after paintless dent removal looking straight again" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>Panel straight again</strong><br>
-            Real result after PDR handled through AutoZone Centre.
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- TAXI & DROP OFF -->
-    <section class="section-block" id="taxi">
-      <div class="section-head">
-        <div class="section-title">Taxi &amp; Drop-Off</div>
-        <div class="section-label">LPTV white plates</div>
-      </div>
-
-      <div class="grid">
-
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/taxi-01.jpg" alt="AutoZone white plate cab used for drop-off service" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>Taxi drop-off while we work</strong><br>
-            One of our cabs used to drop clients to work or home after they leave the car with us.
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-wrapper">
-            <img src="images/gallery/taxi-02.jpg" alt="Taxi and washed car ready for collection" loading="lazy">
-          </div>
-          <div class="photo-caption">
-            <strong>Car ready on collection</strong><br>
-            Washed or serviced car waiting for you after using our taxi + workshop combo.
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- LIGHTBOX (upgrade) -->
-  <div class="lb" id="lb" aria-hidden="true" role="dialog" aria-label="Image preview">
-    <div class="lb-dialog">
-      <div class="lb-top">
-        <p class="lb-title" id="lbTitle">Image preview</p>
-        <button class="lb-btn" type="button" id="lbClose" aria-label="Close">Close ✕</button>
-      </div>
-
-      <div class="lb-stage" id="lbStage">
-        <img id="lbImg" alt="">
-        <div class="lb-nav" aria-hidden="true">
-          <button class="lb-btn" type="button" id="lbPrev" aria-label="Previous image">‹</button>
-          <button class="lb-btn" type="button" id="lbNext" aria-label="Next image">›</button>
-        </div>
-      </div>
-
-      <div class="lb-caption" id="lbCaption"></div>
-    </div>
+<section class="section-block" id="wash-detailing">
+  <div class="section-head">
+    <div class="section-title">Car Wash &amp; Detailing</div>
+    <div class="section-label">Wash Studio</div>
   </div>
 
-  <footer>
-    <div class="mini">AUTOZONE CENTRE • MARSA</div>
-    <div>Wash • Service • AC • Taxi — All in One Place</div>
-    <div class="legal-note">
-      © <span id="year"></span> AutoZone Centre. All rights reserved.
-      AutoZoneCentreMalta.com
+  <div class="grid">
+
+    <!-- NEW PHOTO ADDED -->
+    <div class="photo-card">
+      <div class="photo-wrapper">
+        <img src="images/gallery/wash-01.jpg"
+             alt="Clean car after full AutoZone Max wash"
+             loading="lazy">
+      </div>
+      <div class="photo-caption">
+        <strong>AutoZone Max – clean finish</strong><br>
+        Clean car after a full AutoZone Max wash, inside, outside and engine bay.
+      </div>
     </div>
-  </footer>
 
-  <script>
-    (function(){
-      var yEl = document.getElementById('year');
-      if (yEl) yEl.textContent = new Date().getFullYear();
-    })();
-  </script>
+  </div>
+</section>
 
-  <script>
-    (function(){
-      var lb = document.getElementById('lb');
-      var lbImg = document.getElementById('lbImg');
-      var lbCaption = document.getElementById('lbCaption');
-      var lbClose = document.getElementById('lbClose');
-      var lbPrev = document.getElementById('lbPrev');
-      var lbNext = document.getElementById('lbNext');
-      var lbStage = document.getElementById('lbStage');
+</main>
 
-      if (!lb || !lbImg || !lbCaption) return;
+<footer>
+  <div class="mini">AUTOZONE CENTRE • MARSA</div>
+  <div>Wash • Service • AC • Taxi — All in One Place</div>
+  <div class="legal-note">
+    © <span id="year"></span> AutoZone Centre. All rights reserved.
+  </div>
+</footer>
 
-      var items = Array.prototype.slice.call(document.querySelectorAll('.photo-card'));
-      var currentIndex = -1;
-      var lastActiveEl = null;
-
-      function getCaptionFromCard(card){
-        var cap = card.querySelector('.photo-caption');
-        return cap ? cap.innerHTML : '';
-      }
-
-      function getImgFromCard(card){
-        return card.querySelector('.photo-wrapper img');
-      }
-
-      function openAt(index){
-        if (index < 0 || index >= items.length) return;
-        currentIndex = index;
-
-        var card = items[currentIndex];
-        var img = getImgFromCard(card);
-        if (!img) return;
-
-        lastActiveEl = document.activeElement;
-
-        lbImg.src = img.getAttribute('src') || '';
-        lbImg.alt = img.getAttribute('alt') || 'Gallery image';
-        lbCaption.innerHTML = getCaptionFromCard(card);
-
-        lb.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-
-        // focus close for keyboard users
-        if (lbClose) lbClose.focus();
-      }
-
-      function close(){
-        lb.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        lbImg.src = '';
-
-        if (lastActiveEl && typeof lastActiveEl.focus === 'function') {
-          lastActiveEl.focus();
-        }
-      }
-
-      function next(){
-        if (items.length === 0) return;
-        var n = currentIndex + 1;
-        if (n >= items.length) n = 0;
-        openAt(n);
-      }
-
-      function prev(){
-        if (items.length === 0) return;
-        var p = currentIndex - 1;
-        if (p < 0) p = items.length - 1;
-        openAt(p);
-      }
-
-      // Make each photo wrapper keyboard/click accessible (without changing structure)
-      items.forEach(function(card, idx){
-        var wrapper = card.querySelector('.photo-wrapper');
-        if (!wrapper) return;
-
-        wrapper.setAttribute('tabindex', '0');
-        wrapper.setAttribute('role', 'button');
-        wrapper.setAttribute('aria-label', 'Open image');
-
-        wrapper.addEventListener('click', function(){
-          openAt(idx);
-        });
-
-        wrapper.addEventListener('keydown', function(e){
-          var k = e.key || e.code;
-          if (k === 'Enter' || k === ' ') {
-            e.preventDefault();
-            openAt(idx);
-          }
-        });
-      });
-
-      // Close handlers
-      if (lbClose) lbClose.addEventListener('click', close);
-
-      // Click outside image closes (but clicks on nav/buttons won’t)
-      lb.addEventListener('click', function(e){
-        if (e.target === lb) close();
-      });
-
-      // Stage click (not on buttons) closes
-      if (lbStage) {
-        lbStage.addEventListener('click', function(e){
-          // if user clicks the background of stage (not image/buttons), close
-          if (e.target === lbStage) close();
-        });
-      }
-
-      if (lbNext) lbNext.addEventListener('click', function(e){ e.stopPropagation(); next(); });
-      if (lbPrev) lbPrev.addEventListener('click', function(e){ e.stopPropagation(); prev(); });
-
-      // Keyboard controls
-      document.addEventListener('keydown', function(e){
-        if (lb.getAttribute('aria-hidden') !== 'false') return;
-
-        if (e.key === 'Escape') close();
-        if (e.key === 'ArrowRight') next();
-        if (e.key === 'ArrowLeft') prev();
-      });
-    })();
-  </script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
