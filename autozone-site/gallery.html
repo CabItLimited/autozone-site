@@ -52,12 +52,14 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      position: relative; /* needed for mobile dropdown positioning */
     }
 
     .nav-left {
       display: flex;
       align-items: center;
       gap: .75rem;
+      min-width: 0;
     }
 
     .nav-logo {
@@ -69,6 +71,7 @@
       display: flex;
       flex-direction: column;
       line-height: 1.2;
+      min-width: 0;
     }
 
     .brand-name {
@@ -77,12 +80,14 @@
       color: var(--yellow);
       letter-spacing: .08em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .brand-loc {
       font-size: .7rem;
       color: var(--text-dim);
       font-weight: 500;
+      white-space: nowrap;
     }
 
     .nav-right {
@@ -139,6 +144,68 @@
         cursor: pointer;
       }
     }
+
+    /* ===== MOBILE HAMBURGER MENU (NEW) ===== */
+    .nav-toggle {
+      display: none;
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color: var(--text-light);
+      border-radius: 999px;
+      padding: .55rem .7rem;
+      cursor: pointer;
+      line-height: 1;
+      transition: all .15s linear;
+      user-select: none;
+    }
+
+    .nav-toggle:hover {
+      border-color: rgba(255,213,0,0.7);
+      background: rgba(255,213,0,0.12);
+      color: var(--yellow);
+    }
+
+    .nav-toggle .icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
+    /* On mobile: hide links and show toggle button */
+    @media (max-width: 900px) {
+      .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+
+      /* Prevent the "smudged" wrap */
+      nav.nav-links {
+        display: none;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: .25rem;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 1.25rem;
+        right: 1.25rem;
+        background: rgba(15,15,15,0.96);
+        border: 1px solid rgba(255,255,255,0.10);
+        border-radius: 16px;
+        padding: .6rem;
+        box-shadow: 0 30px 80px rgba(0,0,0,0.85);
+        z-index: 1200;
+      }
+
+      nav.nav-links.is-open { display: flex; }
+
+      nav.nav-links .nav-link {
+        width: 100%;
+        padding: .65rem .8rem;
+        border-radius: 12px;
+      }
+
+      /* Optional: keep CTA hidden on mobile (it already is by default) */
+      .nav-cta { display: none !important; }
+    }
+    /* ===== END MOBILE MENU ===== */
 
     /* GLOBAL WRAPPER */
     .wrap {
@@ -427,8 +494,16 @@
           <div class="brand-loc">Marsa • Malta</div>
         </div>
       </div>
+
       <div class="nav-right">
-        <nav class="nav-links">
+        <!-- NEW: mobile menu button -->
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-controls="siteNav" aria-expanded="false">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <nav class="nav-links" id="siteNav">
           <a href="/" class="nav-link">Home</a>
           <a href="/services.html" class="nav-link">Services</a>
           <a href="/booking.html" class="nav-link">Booking</a>
@@ -437,6 +512,7 @@
           <a href="/reviews.html" class="nav-link">Reviews</a>
           <a href="/contact.html" class="nav-link">Contact</a>
         </nav>
+
         <a href="/booking.html" class="nav-cta">Book Now</a>
       </div>
     </div>
@@ -721,6 +797,57 @@
     (function(){
       var yEl = document.getElementById('year');
       if (yEl) yEl.textContent = new Date().getFullYear();
+    })();
+  </script>
+
+  <!-- NEW: Mobile nav toggle script -->
+  <script>
+    (function(){
+      var btn = document.getElementById('navToggle');
+      var nav = document.getElementById('siteNav');
+      if (!btn || !nav) return;
+
+      function closeNav(){
+        nav.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Open menu');
+      }
+
+      function openNav(){
+        nav.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-label', 'Close menu');
+      }
+
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        if (nav.classList.contains('is-open')) closeNav();
+        else openNav();
+      });
+
+      // close when clicking outside
+      document.addEventListener('click', function(e){
+        if (!nav.classList.contains('is-open')) return;
+        var insideNav = nav.contains(e.target);
+        var insideBtn = btn.contains(e.target);
+        if (!insideNav && !insideBtn) closeNav();
+      });
+
+      // close when clicking a link
+      nav.addEventListener('click', function(e){
+        var a = e.target && e.target.closest ? e.target.closest('a') : null;
+        if (a) closeNav();
+      });
+
+      // close on Escape
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape') closeNav();
+      });
+
+      // If user rotates / goes desktop width, make sure menu isn't stuck open
+      window.addEventListener('resize', function(){
+        if (window.innerWidth > 900) closeNav();
+      });
     })();
   </script>
 
