@@ -259,6 +259,7 @@
     .photo-wrapper {
       position: relative;
       overflow: hidden;
+      cursor: zoom-in;
     }
 
     .photo-wrapper img {
@@ -301,6 +302,112 @@
     }
 
     footer .legal-note { margin-top: .75rem; }
+
+    /* LIGHTBOX UPGRADE */
+    .lb {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.86);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1rem;
+    }
+
+    .lb[aria-hidden="false"] { display: flex; }
+
+    .lb-dialog {
+      width: min(980px, 100%);
+      max-height: 92vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: .75rem;
+    }
+
+    .lb-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+    }
+
+    .lb-title {
+      font-size: .85rem;
+      color: var(--text-dim);
+      margin: 0;
+    }
+
+    .lb-btn {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color: var(--text-light);
+      border-radius: 999px;
+      padding: .55rem .8rem;
+      font-size: .8rem;
+      cursor: pointer;
+      transition: all .15s linear;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .lb-btn:hover {
+      border-color: rgba(255,213,0,0.7);
+      background: rgba(255,213,0,0.12);
+      color: var(--yellow);
+    }
+
+    .lb-stage {
+      background: rgba(15,15,15,0.55);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      position: relative;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.85);
+    }
+
+    .lb-stage img {
+      width: 100%;
+      height: auto;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .lb-nav {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      pointer-events: none;
+      padding: 0 .5rem;
+    }
+
+    .lb-nav .lb-btn {
+      pointer-events: all;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .lb-caption {
+      font-size: .85rem;
+      color: var(--text-dim);
+      background: rgba(0,0,0,0.28);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius-lg);
+      padding: .85rem 1rem;
+    }
+
+    .lb-caption strong { color: var(--text-light); }
+
+    @media (max-width: 520px) {
+      .lb-stage img { max-height: 62vh; }
+      .lb-btn { padding: .55rem .7rem; }
+    }
   </style>
 </head>
 <body>
@@ -578,6 +685,26 @@
 
   </main>
 
+  <!-- LIGHTBOX (upgrade) -->
+  <div class="lb" id="lb" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <div class="lb-dialog">
+      <div class="lb-top">
+        <p class="lb-title" id="lbTitle">Image preview</p>
+        <button class="lb-btn" type="button" id="lbClose" aria-label="Close">Close ✕</button>
+      </div>
+
+      <div class="lb-stage" id="lbStage">
+        <img id="lbImg" alt="">
+        <div class="lb-nav" aria-hidden="true">
+          <button class="lb-btn" type="button" id="lbPrev" aria-label="Previous image">‹</button>
+          <button class="lb-btn" type="button" id="lbNext" aria-label="Next image">›</button>
+        </div>
+      </div>
+
+      <div class="lb-caption" id="lbCaption"></div>
+    </div>
+  </div>
+
   <footer>
     <div class="mini">AUTOZONE CENTRE • MARSA</div>
     <div>Wash • Service • AC • Taxi — All in One Place</div>
@@ -591,6 +718,128 @@
     (function(){
       var yEl = document.getElementById('year');
       if (yEl) yEl.textContent = new Date().getFullYear();
+    })();
+  </script>
+
+  <script>
+    (function(){
+      var lb = document.getElementById('lb');
+      var lbImg = document.getElementById('lbImg');
+      var lbCaption = document.getElementById('lbCaption');
+      var lbClose = document.getElementById('lbClose');
+      var lbPrev = document.getElementById('lbPrev');
+      var lbNext = document.getElementById('lbNext');
+      var lbStage = document.getElementById('lbStage');
+
+      if (!lb || !lbImg || !lbCaption) return;
+
+      var items = Array.prototype.slice.call(document.querySelectorAll('.photo-card'));
+      var currentIndex = -1;
+      var lastActiveEl = null;
+
+      function getCaptionFromCard(card){
+        var cap = card.querySelector('.photo-caption');
+        return cap ? cap.innerHTML : '';
+      }
+
+      function getImgFromCard(card){
+        return card.querySelector('.photo-wrapper img');
+      }
+
+      function openAt(index){
+        if (index < 0 || index >= items.length) return;
+        currentIndex = index;
+
+        var card = items[currentIndex];
+        var img = getImgFromCard(card);
+        if (!img) return;
+
+        lastActiveEl = document.activeElement;
+
+        lbImg.src = img.getAttribute('src') || '';
+        lbImg.alt = img.getAttribute('alt') || 'Gallery image';
+        lbCaption.innerHTML = getCaptionFromCard(card);
+
+        lb.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        // focus close for keyboard users
+        if (lbClose) lbClose.focus();
+      }
+
+      function close(){
+        lb.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+
+        if (lastActiveEl && typeof lastActiveEl.focus === 'function') {
+          lastActiveEl.focus();
+        }
+      }
+
+      function next(){
+        if (items.length === 0) return;
+        var n = currentIndex + 1;
+        if (n >= items.length) n = 0;
+        openAt(n);
+      }
+
+      function prev(){
+        if (items.length === 0) return;
+        var p = currentIndex - 1;
+        if (p < 0) p = items.length - 1;
+        openAt(p);
+      }
+
+      // Make each photo wrapper keyboard/click accessible (without changing structure)
+      items.forEach(function(card, idx){
+        var wrapper = card.querySelector('.photo-wrapper');
+        if (!wrapper) return;
+
+        wrapper.setAttribute('tabindex', '0');
+        wrapper.setAttribute('role', 'button');
+        wrapper.setAttribute('aria-label', 'Open image');
+
+        wrapper.addEventListener('click', function(){
+          openAt(idx);
+        });
+
+        wrapper.addEventListener('keydown', function(e){
+          var k = e.key || e.code;
+          if (k === 'Enter' || k === ' ') {
+            e.preventDefault();
+            openAt(idx);
+          }
+        });
+      });
+
+      // Close handlers
+      if (lbClose) lbClose.addEventListener('click', close);
+
+      // Click outside image closes (but clicks on nav/buttons won’t)
+      lb.addEventListener('click', function(e){
+        if (e.target === lb) close();
+      });
+
+      // Stage click (not on buttons) closes
+      if (lbStage) {
+        lbStage.addEventListener('click', function(e){
+          // if user clicks the background of stage (not image/buttons), close
+          if (e.target === lbStage) close();
+        });
+      }
+
+      if (lbNext) lbNext.addEventListener('click', function(e){ e.stopPropagation(); next(); });
+      if (lbPrev) lbPrev.addEventListener('click', function(e){ e.stopPropagation(); prev(); });
+
+      // Keyboard controls
+      document.addEventListener('keydown', function(e){
+        if (lb.getAttribute('aria-hidden') !== 'false') return;
+
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
+      });
     })();
   </script>
 
